@@ -17,7 +17,7 @@ def extract_file_parts(filepath)
 
   {
     filename: File.basename(filepath),
-    dir: File.dirname(filepath).sub(/^\.\/src\/docs/, ''),
+    dir: File.dirname(filepath).sub(/^\.\/docs/, ''),
     path_to_dir_root: '../' * directory_depth
   }
 end
@@ -26,12 +26,12 @@ puts 'Generating documentation ... ... ...'
 
 # Find all .adoc-files under src/docs recursively
 documents = []
-Dir.glob('./src/docs/**/*.adoc') do |path|
+Dir.glob('./docs/**/*.adoc') do |path|
   documents << path
 end
 
-result_dir = 'target/docs'
-theme_dir = 'src/docs/theme'
+result_dir = 'docs-generated'
+theme_dir = 'docs/theme'
 theme_file = "#{theme_dir}/doc-theme.yml"
 
 puts "#{documents.size} files to generate"

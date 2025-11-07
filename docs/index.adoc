@@ -1,0 +1,125 @@
+= Meine Konfigurationen
+
+Bonos Konfigurationen für NixOS, Linux-Distributionen und Windows
+
+Dieses Projekt enthält Konfigurationen für verschiedene Systeme.
+Hauptziel ist es, einen einheitlichen Standort für meine Konfigurationen zu erzeugen.
+Die Vorteile dessen sind unter xref:ziele[] näher beschrieben.
+
+[#ziele]
+== Ziele
+Warum ist das ganze eigentlich sinnvoll und nötig?
+Welche Vorteile bringt dieser Ansatz?
+
+Schnelle Neueinrichtung von Geräten::
+Muss ein Gerät neu aufgesetzt werden, kann es einfach seine zugehörige
+Konfiguration übernehmen und ist direkt lauffähig und korrekt konfiguriert.
+[TIP]
+.Beispiel
+====
+Mein Laptop ist kaputtgegangen oder in die Jahre gekommen.
+Ich habe mir im Elektronikmarkt meines vertrauens einen neuen ausgesucht.
+Auf dem Laptop möchte ich die gleichen Inhalte haben, wie auf dem alten.
+====
+
+Schnelle Ergänzung neuer Gerätearten::
+Durch die Modularisierung ist es in kürzester Zeit möglich,
+neue Gerätearten hinzuzufügen.
+Sie können sich geringfügig oder auch vollständig von bestehenden
+Konfigurationen unterscheiden.
+[TIP]
+.Beispiel
+====
+Ich habe einen Gamingrechner und einen Arbeitslaptop.
+Mit einem Kollegen fange ich ein Band-Projekt an und wir benötigen
+eine DAW-Software.
+Für das Projekt betreibe ich einen extra Laptop, die Inhalte
+möchte ich nicht auf meinem bestehenden Rechner haben.
+Look and Feel sollen aber genauso sein, wie auf meinen bisherigen
+Geräten.
+====
+
+Konfiguration als Code::
+Sind alle Abhängigkeiten als Code hinterlegt, können keine Überbleibsel
+von Experimenten oder alter, nicht mehr benötigter Software bestehen.
+Es existiert stets die Übersicht, welche Inhalte installiert und konfiguriert sind.
+[TIP]
+.Beispiel
+====
+Ich brauchte ein Programm zum Nutzen von VoIP auf meinem Rechner.
+Leider stellte es sich als komplexer heraus als gedacht.
+Viele der auf dem Weg installierten Abhängigkeiten benötige ich gar
+nicht mehr, da die gewählte Software nicht meinen Vorstellungen entsprach.
+Jetzt habe ich haufenweise Abhängigkeiten in meinem Paketmanager, die ich
+eigentlich gar nicht mehr brauche.
+====
+
+Abhängigkeitsverwaltung::
+Theoretisch kann die Aktualisierung der Abhängigkeiten durch diese Form
+auch in Git stattfinden (Renovate o.Ä.)
+
+== Arten von Geräten und Konfigurationen
+Nicht jedes Gerät ist gleich.
+Einige benötigen spezifische Arten Konfigurationen.
+So könnten sich die Betriebssysteme oder die äußeren Bedingungen
+auf den Systemen unterscheiden.
+Die nachfolgenden Unterscheidungen können getroffen werden
+
+=== Betriebssystem
+Das Betriebssystem des Zielgeräts entscheidet maßgeblich über die Art der eingesetzten
+Lösung.
+
+[#os-nixos]
+NixOS::
+Der optimalste (aber auch komplexeste) Fall ist der Einsatz eines vollwertigen
+NixOS-Geräts.
+Die installierten Programme können über den Nix-Paketmanager verwaltet werden,
+die Konfiguration des Systems erfolgt ebenfalls als Code. +
+Das Repo enthält hier die vollständige Systembeschreibung.
+
+Linux (bspw. Arch) mit Nix-Manager::
+Aber auch andere Linux-Systeme sollen unterstützt werden,
+solange der Nix-Paketmanager als Basis verwendet wird. +
+Das Repo enthält hier die Konfiguration für die vom Nix-Manager
+zu installierenden Inhalte.
+
+Windows::
+Oft werden auch Windowssysteme benötigt.
+Auch auf diesen soll halbwegs ermöglicht werden,
+systematisch Abhängigkeiten zu installieren und eine
+Art "Grundversion" bereitzustellen.
+Diese könnte auch als ausführbares Image angeboten werden,
+um so Windows in einer VM ausführbar bereitzustellen
+(was eh mein Ziel ist).
+Auf Windows sollte nach möglichkeit Chocolatey installiert sein.
+Ist dies nicht machbar, kann hier nur die Liste der manuell zu
+installierenden Software, vorzugsweise als Portable Version aufgelistet werden.
+
+=== Zeitpunkt
+Doch nicht nur das Betriebssystem, sondern auch der Zeitpunkt des Einspielens
+ist eine relevante Unterscheidung.
+
+Neuinstallation::
+Soll ein System neu aufgesetzt werden, ist das Ziel dieses Projektes,
+die komplette Einrichtung durchzuführen.
+Die Systeme sollen mit allen relevanten Programmen ausgestattet
+und bestmöglich automatisch konfiguriert werden.
+Das ist natürlich auf xref:os-nixos[NixOS] einfacher zu realisieren,
+als auf anderen Systemen.
+Eine Neuinstallation von Arch ist nach erfolgreicher Umsetzung dieses
+Projekts nicht mehr sinnvoll.
+Auf Windows kann nur "möglichst viel" automatisiert durchgeführt werden.
+
+Bestehendes System::
+Existiert bereits ein System, soll eine ergänzende Konfiguration möglich sein.
+Hierbei soll das bestehende System nicht gestört, sondern nur erweitert werden.
+
+=== Berechtigungen
+Ein wesentlicher Punkt ist noch die Frage der vorhandenen Berechtigungen.
+
+Sind alle Rechte zur Anpassung eines Systems vorhanden (bspw. Admin-Rechte auf
+Windows oder Root auf Linux), können automatisiert Anpassungen und Installationen
+durchgeführt werden.
+
+Auf Systemen mit eingeschränkten Berechtigungen können nur Konfigurationsempfehlungen
+übersichtlich aufbereitet und Empfehlungen für Portable Versionen gemacht werden.

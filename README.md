@@ -1,15 +1,15 @@
-# Asciidoc Base Project
+# Meine Konfigurationen
+Dieses Repo enthält die Konfigurationen für meine Geräte.
 
-This project contains an empty, ready to use Asciidoc project.
-Just clone the project, download the required Gems and execute the `generate-docs.rb`-file.
+Enthalten sollen verschiedene NixOS- bzw. Nix-Konfigurationsdateien für Linux,
+sowie Chocolatey-Listen für Windowssysteme.
 
-## Generated Project
+Weiterhin wird der Aufbau in Asciidoc dokumentiert und Entscheidungen begründet,
+sodass zu einem späteren Zeitpunkt der Aufbau leicht nachvollzogen werden kann.
 
-The pdf files are generated under `target/docs`.
-They keep the same directory structure as the original `.adoc` files under `src/docs`.
-
-## Custom Theming
-
-The PDF generator uses other theming configuration files than the orignal HTML one, which uses `.css`-files.
-Here, a `.yml`-format defines different properties of the resulting PDF.
-More information can be found under [the official Asciidoc-documentation](https://docs.asciidoctor.org/pdf-converter/latest/theme/create-theme/).
+## Generierung der Dokumentation
+Die Dokumentation des Projektes erfolgt in Asciidoc.
+Zur Generierung der Doku in PDF-Form wird Ruby mit einigen Gems benötigt.
+Die erforderlichen Gems sind bereits hinterlegt und können via `bundle install`
+installiert werden.
+Ggf. ist `bundle config set --local path 'vendor/bundle'` dafür nötig.

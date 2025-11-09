@@ -1,0 +1,63 @@
+:fn-stand-hauptrechner: footnote:[Hauptrechner auf Arch LInux, Stand 11/2025]
+
+= Einrichtung auf bestehenden Arch-Linux-Systemen
+
+== Klassifizierung
+Betriebssystem:: Arch
+Zeitpunkt:: Bestehendes System
+Berechtigungen:: Root
+
+== Beschreibung
+
+Neben dem Betrieb eines reinen NixOS-Systems soll auch die Verwendung auf bestehenden Arch-Installationen,
+wie meinem derzeitigen Hauptrechner{fn-stand-hauptrechner}, ermöglicht werden.
+
+== Einrichtung
+Zur Verwendung der Konfigurationen auf einem bestehenden Arch-Linux-Gerät sind einige
+vorbereitende Schritte notwendig:
+
+=== Vorbereitung
+
+[source,shell]
+----
+sudo pacman -Syu
+sudo pacman -S --needed nix
+
+sudo systemctl enable --now nix-daemon.service
+
+sudo usermod -aG nix $USER
+newgrp nix
+
+nix profile install nixpkgs#home-manager
+----
+
+1. Installation von Nix. +
+_Dieser Schritt kann übersprungen werden, wenn bereits der Nix-Paketmanager eingesetzt wird._
+Zur Verwendung der gewünschten Nix-Module wird Nix als Paketmanager benötigt.
+Dazu wird nach der Aktualisierung der bestehenden Pakete (`pacman -Syu`) die Abhängigkeit
+`nix` installiert.
+Durch das `--needed` Flag wird eine etwaig bereits bestehende Nix-Installation nicht überschrieben.
+2. Aktivieren von Nix. +
+_Dieser Schritt kann übersprungen werden, wenn der Nix-Paketmanager auf dem System bereits aktiv ist._
+Der nun installierte Nix-Paketmanager muss auch aktiviert werden, um zu funktionieren.
+Daher wird der `nix-daemon` Service auf dem System enabled und direkt gestartet (`--now` oder `systemctl start nix-daemon.service`).
+3. Nutzergruppe für Nix. +
+_Dieser Schritt kann übersprungen werden, wenn der Nix-Paketmanager für den Nutzer bereits aktiv ist._
+Nun wird die Nutzergruppe `nix` für den aktuellen Nutzer ergänzt.
+Daraufhin ist ein erneutes Anmelden des Nutzers oder das Hinzufügen der Nutzergruppe in Laufzeit
+(`newgrp nix`) nötig.
+4. Home Manager aktivieren (optional)
+Die Installation des `home-manager`-Pakets ermöglicht den Aufruf unserer Repository-Konfiguration.
+Es ist auch möglich, diesen Schritt zu überspringen und den Home Manager per `nix run` zu verwenden.
+Im Rahmen der Repo-Flake wird er ohnehin installiert, weshalb es keinen Unterschied darstellen sollte.
+
+=== Ausführung der Repo-Flake
+Nun kann Home Manager die gewünschte Konfiguration aus dem Github-Repo starten.
+Diese muss in der zentralen `flake.nix` beschrieben sein, damit Home Manager sie finden kann.
+Wird beispielsweise die Installation des fiktiven Hosts `arch-host` gewünscht, ist folgender
+Aufruf durchzuführen:
+
+[source,shell]
+----
+home-manager switch --flake github:Hirschfuchs/my-configs#arch-host
+----

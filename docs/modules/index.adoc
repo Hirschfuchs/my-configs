@@ -1,0 +1,41 @@
+= Moduldokumentation
+Beschreibung der im Repo enthaltenen Module
+
+Diese Dokumentation beschreibt die konfigurierten Nix-Module.
+Sie soll den Entwurf der Modulstruktur festhalten und die Entscheidung
+über zu verwendende Module für einen neuen Host unterstützen.
+
+== Allgemeine Strukturierung
+
+Die Module teilen sich in mehrere Schichten auf.
+
+[plantuml]
+----
+@startuml
+component mod [
+Module (Hauptebene)
+]
+component sub [
+Submodule
+]
+
+mod -down-> sub
+@enduml
+----
+
+Auf der oberen Ebene sind abstraktere Gruppen, wie "Arbeit" oder "Gaming" beschrieben,
+während auf der Submodul-Ebene die konkreten Abhängigkeiten gelistet sind.
+
+== Auflistung aller Module
+// TODO
+
+// === Hauptebene
+// include::hauptebene.adoc[leveloffset=2]
+//
+// === Submodulebene
+// include::submodule.adoc[leveloffset=2]
+
+=== Einzelauflistung
+
+==== Hilfsprogramme
+include::einzel/hilfsprogramme.adoc[leveloffset=4]

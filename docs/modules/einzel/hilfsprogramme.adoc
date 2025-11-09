@@ -1,0 +1,38 @@
+Das erste Modul, das in diesem Projekt erstellt wird,
+ist das Modul `hilfsprogramme`.
+Dies sind Standardfunktionalitäten, die ich auf einem System
+zur reibungslosen Verwendung vorfinden möchte.
+Gleichzeitig sind es nicht so tiefenessenzielle Dinge,
+wie das Betriebssystem oder der Bootmanager,
+weshalb hier erstmal gut die Migration von _Pacman_ auf _Nix_ getestet werden kann.
+
+== Enthaltene Abhängigkeiten
+
+
+|===
+|Abhängigkeit |Beschreibung |Packagename (NUR)
+
+|VLC Media Player
+|Mediaplayer mit großer Kompatibilität und vielen enthaltenen Codecs
+|vlc
+
+|Vim
+|VI-Editor im Terminal
+|vim
+
+|Sublime
+|GUI Texteditor
+|sublime
+
+|Kitty
+|Bevorzugter Terminal Emulator
+|kitty
+
+|Image Magick
+|Beste Bildkonvertierung im Terminal
+|imagemagick
+
+|Git
+|Versionsverwaltung auf der Konsole
+|git
+|===

@@ -58,12 +58,12 @@ Abhängigkeitsverwaltung::
 Theoretisch kann die Aktualisierung der Abhängigkeiten durch diese Form
 auch in Git stattfinden (Renovate o.Ä.)
 
-== Arten von Geräten und Konfigurationen
+== Klassifizierung von Geräten und Konfigurationen
 Nicht jedes Gerät ist gleich.
 Einige benötigen spezifische Arten Konfigurationen.
 So könnten sich die Betriebssysteme oder die äußeren Bedingungen
 auf den Systemen unterscheiden.
-Die nachfolgenden Unterscheidungen können getroffen werden
+Die nachfolgenden Unterscheidungen können getroffen werden.
 
 === Betriebssystem
 Das Betriebssystem des Zielgeräts entscheidet maßgeblich über die Art der eingesetzten
@@ -71,7 +71,7 @@ Lösung.
 
 [#os-nixos]
 NixOS::
-Der optimalste (aber auch komplexeste) Fall ist der Einsatz eines vollwertigen
+Der optimale (aber auch komplexeste) Fall ist der Einsatz eines vollwertigen
 NixOS-Geräts.
 Die installierten Programme können über den Nix-Paketmanager verwaltet werden,
 die Konfiguration des Systems erfolgt ebenfalls als Code. +
@@ -89,7 +89,7 @@ Auch auf diesen soll halbwegs ermöglicht werden,
 systematisch Abhängigkeiten zu installieren und eine
 Art "Grundversion" bereitzustellen.
 Diese könnte auch als ausführbares Image angeboten werden,
-um so Windows in einer VM ausführbar bereitzustellen
+um so Windows in einer VM ausführbar bereitzustellen,
 (was eh mein Ziel ist).
 Auf Windows sollte nach möglichkeit Chocolatey installiert sein.
 Ist dies nicht machbar, kann hier nur die Liste der manuell zu
@@ -123,3 +123,25 @@ durchgeführt werden.
 
 Auf Systemen mit eingeschränkten Berechtigungen können nur Konfigurationsempfehlungen
 übersichtlich aufbereitet und Empfehlungen für Portable Versionen gemacht werden.
+
+== Einrichtung der Geräte
+Die Einrichtung der Konfigurationen auf einem Gerät hängt von dessen Klassifizierung nach den
+obenstehenden Kriterien ab.
+Aktuell beschrieben ist die Einrichtung auf den folgenden Systemtypen:
+
+- xref:einrichtung/arch.adoc[Bestehendes Arch-System]
+
+== Zusammenstellung der Module
+Der Aufbau der Konfigurationen ist in der zentralen `flake.nix`-Datei beschrieben.
+Ein Host-System setzt sich dabei aus zwei Teilen zusammen:
+
+1. die Host-Datei (`hosts/hostname.nix`).
+Sie beschreibt den konfigurativen Part eines Hosts.
+So kann sie zum Beispiel dot-Files oder Credentials steuern oder Einstellungen beinhalten.
+2. die Modul-Dateien (`nix-modules/modulname.nix`),
+Sie enthalten die zu installierenden Abhängigkeiten.
+Ein Host teilt sich in mehrere Module auf, um möglichst präzise steuern zu können,
+welche Arten Abhängigkeiten benötigt werden.
+Mehrere Hosts können sich die gleichen Module teilen, je nach benötigten Inhalten.
+
+Die Module sind im Detail in xref:modules/index.adoc[der Moduldokumentation] beschrieben.

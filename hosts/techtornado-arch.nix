@@ -16,5 +16,7 @@
       NIX_CONFIG = "experimental-features = nix-command flakes";
     };
 
+    home.sessionPath = [ "${config.home.homeDirectory}/.nix-profile/bin" ];
+
     home.stateVersion = "25.05";
 }

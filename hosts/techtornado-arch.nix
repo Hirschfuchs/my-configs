@@ -12,5 +12,9 @@
       package = pkgs.zsh;
     };
 
+    home.sessionVariables = {
+      NIX_CONFIG = "experimental-features = nix-command flakes";
+    };
+
     home.stateVersion = "25.05";
 }

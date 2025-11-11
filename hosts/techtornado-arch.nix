@@ -7,7 +7,10 @@
         ../nix-modules/hilfsprogramme-home.nix
     ];
 
-    programs.zsh.enable = true;
-    programs.zsh.shell = pkgs.zsh;
+    programs.zsh = {
+      enable = true;
+      package = pkgs.zsh;
+    };
+
     home.stateVersion = "25.05";
 }

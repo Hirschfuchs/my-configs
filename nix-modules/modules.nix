@@ -1,7 +1,7 @@
 { lib }: {
   smartPackages = { config, pkgs, packages }: let
-    isNixOS = lib.hasAttr "environment" config;
+    isHomeManager = lib.hasAttr "home" config;
   in
-    if isNixOS then { environment.systemPackages = packages; }
-    else { home.packages = packages; };
+    if isHomeManager then { home.packages = packages; }
+    else { environment.systemPackages = packages; };
 }

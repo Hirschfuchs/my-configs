@@ -12,16 +12,16 @@
     };
 
     outputs = { self, nixpkgs, home-manager, flake-utils, ... }:
-        flake-utils.lib.eachDefaultSystem (system:
-            let pkgs = import nixpkgs { inherit system; };
-            in {
-                # Konfigurationen für Nicht-NixOS-Linux-Systeme
-                homeConfigurations = {
-                    techtornado-arch = home-manager.lib.homeConfiguration {
-                        inherit pkgs;
-                        configuration = import ./hosts/techtornado-arch.nix;
-                    };
-                };
-            }
-    );
+    {
+        # Konfigurationen für Nicht-NixOS-Linux-Systeme
+        homeConfigurations = {
+            techtornado-arch = home-manager.lib.homeManagerConfiguration {
+                pkgs = import nixpkgs { system = "x86_64-linux"; };
+
+                modules = [
+                    ./hosts/techtornado-arch.nix
+                ];
+            };
+        };
+    };
 }

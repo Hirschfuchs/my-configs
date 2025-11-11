@@ -4,7 +4,7 @@
     home.homeDirectory = "/home/bono";
 
     imports = [
-        ../nix-modules/hilsprogramme.nix
+        ../nix-modules/hilfsprogramme.nix
     ];
 
     programs.zsh.enable = true;

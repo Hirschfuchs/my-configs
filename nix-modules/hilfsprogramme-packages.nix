@@ -2,7 +2,7 @@
 with pkgs; [
   vlc
   vim
-  sublime
+  zed-editor
   kitty
   imagemagick
   git

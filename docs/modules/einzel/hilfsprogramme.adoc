@@ -10,29 +10,35 @@ weshalb hier erstmal gut die Migration von _Pacman_ auf _Nix_ getestet werden ka
 
 
 |===
-|Abhängigkeit |Beschreibung |Packagename (NUR)
+|Abhängigkeit |Beschreibung |Packagename (NUR) |Ersetzt (ggf. von Arch)
 
 |VLC Media Player
 |Mediaplayer mit großer Kompatibilität und vielen enthaltenen Codecs
 |vlc
+|
 
 |Vim
 |VI-Editor im Terminal
 |vim
+|
 
+|Zed
+|Fancy, deklarativer GUI Texteditor
+|zed-editor
 |Sublime
-|GUI Texteditor
-|sublime
 
 |Kitty
 |Bevorzugter Terminal Emulator
 |kitty
+|
 
 |Image Magick
 |Beste Bildkonvertierung im Terminal
 |imagemagick
+|
 
 |Git
 |Versionsverwaltung auf der Konsole
 |git
+|
 |===

@@ -5,6 +5,7 @@
 
     imports = [
         ../nix-modules/hilfsprogramme-home.nix
+        ../nix-modules/entwicklung-home.nix
     ];
 
     programs.zsh = {

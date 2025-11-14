@@ -39,3 +39,6 @@ während auf der Submodul-Ebene die konkreten Abhängigkeiten gelistet sind.
 
 ==== Hilfsprogramme
 include::einzel/hilfsprogramme.adoc[leveloffset=4]
+
+==== Entwicklungsumgebungen
+include::einzel/

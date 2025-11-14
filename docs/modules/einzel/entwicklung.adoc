@@ -1,0 +1,44 @@
+Zunächst werden alle IDE- und Entwicklungstools gemeinsam im Modul `entwicklung` zusammengetragen.
+Später soll es eine Unterscheidung geben nach:
+
+* Wichtige IDEs (Jetbrains Toolbox)
+* Nebenläufige IDEs (bspw. Arduino)
+* Entwicklungstools (bspw. Putty)
+
+== Enthaltene Abhängigkeiten
+
+
+|===
+|Abhängigkeit |Beschreibung |Packagename (NUR) |Ersetzt (ggf. von Arch)
+
+|Jetbrains Toolbox (IntelliJ & co.)
+|Toolbox für aktuellste Jetbrains-Software-Versionen.
+Fungiert als Launcher und Manager.
+|jetbrains-toolbox
+|
+
+|Arduino IDE
+|Proprietäre Arduino IDE 2.x
+|arduino-ide
+|
+
+|Zed
+|Fancy, deklarativer GUI Texteditor
+|zed-editor
+|Sublime
+
+|Kitty
+|Bevorzugter Terminal Emulator
+|kitty
+|
+
+|Image Magick
+|Beste Bildkonvertierung im Terminal
+|imagemagick
+|
+
+|Git
+|Versionsverwaltung auf der Konsole
+|git
+|
+|===

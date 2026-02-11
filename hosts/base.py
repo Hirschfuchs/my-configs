@@ -10,8 +10,9 @@ class HostBase(decman.Module):
         foreign = []
 
         for module in submodules:
-            native.extend(module.native_packages)
-            foreign.extend(module.aur_packages)
+            sub_native, sub_foreign = module.collect_packages()
+            native.extend(sub_native)
+            foreign.extend(sub_foreign)
 
         # Duplikate entfernen
         native = sorted(set(native))

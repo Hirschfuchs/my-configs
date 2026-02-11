@@ -2,6 +2,7 @@ from base import HostBase
 
 from modules_decman.hilfsprogramme import Hilfsprogramme
 from modules_decman.entwicklung import Entwicklung
+from modules_decman.kommunikation_privat import KommunikationPrivat
 
 
 class TechtornadoArch(HostBase):
@@ -11,5 +12,6 @@ class TechtornadoArch(HostBase):
             submodules=[
                 Hilfsprogramme(),
                 Entwicklung(),
+                KommunikationPrivat()
             ],
         )

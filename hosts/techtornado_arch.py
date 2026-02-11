@@ -1,6 +1,7 @@
 from base import HostBase
 
 from modules_decman.hilfsprogramme import Hilfsprogramme
+from modules_decman.entwicklung import Entwicklung
 
 
 class TechtornadoArch(HostBase):
@@ -9,5 +10,6 @@ class TechtornadoArch(HostBase):
             "techtornado-arch",
             submodules=[
                 Hilfsprogramme(),
+                Entwicklung(),
             ],
         )

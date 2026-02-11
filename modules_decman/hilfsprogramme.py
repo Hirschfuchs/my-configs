@@ -17,6 +17,10 @@ class Hilfsprogramme(SubModule):
                 # Terminal
                 "kitty",
                 # Editor (ersetzt Sublime)
-                "zed"
+                "zed",
+                # Dateiverschlüsselungstool
+                "age",
+                # Dateiverschlüsselungseditor
+                "sops",
             ],
         )

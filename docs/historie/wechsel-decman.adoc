@@ -1,0 +1,50 @@
+= Wechsel von Nix auf Decman
+
+Im November 2025 wurde ein lange geplantes Projekt begonnen:
+Meine Systeme, neu dabei mein Laptop der FourEnergy, sollen mittels einer deklarativen Konfiguration
+bestückt werden.
+
+Umgesetzt sollte dies mit einem mittelfristigen Wechsel des zugrunde liegenden Betriebssystems:
+Statt Arch Linux wollte ich nun auf NixOS setzen, welches sich als Betriebssystem um den Nix Paketmanager aufbaut.
+Auf dem Weg zu diesem Zielbild sollte Arch mit dem Nix-Manager erweitert werden, was die Nutzung von Home Manager voraussetzt.
+Sollten alle notwendigen Pakete auf den Nix Manager umgezogen sein, würde auch der Wechsel des Betriebssystems stattfinden.
+
+Doch schnell ergaben sich massive Probleme, was auch in der Git-Historie ersichtlich ist.
+Insbesondere die Anwendungen, welche NixGL für den Zugriff auf die GPU benötigen, haben massive Schwierigkeiten gemacht.
+Auch der Ansatz, kostenpflichtige Software per default abzulehnen, machte Probleme.
+Besonders aber das Erlernen der proprietären Konfigurationssprache und das Deuten der kryptischen Fehlernachrichten
+führten aber zu einem erheblichen Frust und Zeitaufwand.
+Daran allein sollte das Projekt nicht sterben, jedoch wurde das Zeit <> Nutzen Verhältnis zunehmend schlechter.
+In den letzten Tagen der Bearbeitung war der Stand schließlich, trotz der Nutzung von Git,
+nicht mehr verwendbar.
+Der finale Stand ist nicht auf den Main dieses Repositories integriert, da er Credentials enthält,
+die noch nicht ausreichend verschlüsselt waren.
+
+Quintessenz des Versuches war in jedem Fall, dass ich zum akutellen Zeitpunkt nicht zufrieden mit den Ergebnissen von Nix bin.
+Auch die Qualität der Pakete ist gefühlt schlechter als im Arch-Umfeld.
+
+_I use Arch btw :3_
+
+Mein innerer Femboy möchte auch erstmal dabei bleiben.
+Deklarativ wäre trotzdem toll.
+Und das Tolle ist: Dafür gibt es bereits Lösungen.
+Mein privates Projekt für Q1/2026 ist daher `Decman` als Paketmanager einzuführen.
+Dies verläuft in folgenden Phasen:
+
+. Die aktuelle Nix-Konfiguration wird auf Decman-Pakete umgezogen.
+Das betrifft nicht nur die Pakete des `main`-Standes, sondern auch die des lokalen,
+weiter bearbeiten Branches.
+Dieser enthält weitere Aufteilungen und Doku, welche mitgenommen werden soll.
+. Die Verarbeitung der bestehenden Arch-Pakete.
+Da der Paketmanager alle nicht deklarierten Pakete entfernt, muss dieser Schritt vollständig abgeschlossen werden,
+bevor er ausgeführt wird.
+.. Zunächst werden die native Packages per `pacman -Qeqn` geprüft und umgezogen, wenn sinnvoll
+.. Danach werden auch die foreign Packages (bspw. über yay installierte) per `pacman -Qeqm` geprüft und umgezogen, wenn sinnvoll
+. Bin ich mit dem Stand zufrieden, wird der Prozess zum Aufsetzen neuer Systeme soweit optimiert, dass dies mit minimalem Aufwand möglich ist
+
+Die Verwendung von Nix und NixOS wird vorerst vollständig auf Eis gelegt.
+Entsprechende Dokumentation wird mit dieser Dokumentationsanpassung entfernt.
+Die Flakes werden sukzessive aus dem Projekt entfernt.
+
+Da Decman keine Unterscheidung der Hosts machen kann und einen einfachen Einstieg braucht,
+muss außerdem noch ein Skript definiert werden, dass alle Module und den Ziel-Host von Github oder lokal an den richtigen Ort zieht.

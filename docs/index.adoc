@@ -1,10 +1,30 @@
 = Meine Konfigurationen
 
-Bonos Konfigurationen für NixOS, Linux-Distributionen und Windows
+Bonos Konfigurationen für Arch Linux (https://github.com/kiviktnm/decman[Decman]) und Windows-Systeme
 
 Dieses Projekt enthält Konfigurationen für verschiedene Systeme.
 Hauptziel ist es, einen einheitlichen Standort für meine Konfigurationen zu erzeugen.
 Die Vorteile dessen sind unter xref:ziele[] näher beschrieben.
+
+[IMPORTANT]
+.Konzeptwechsel 2026
+====
+Nach wie vor ist die Grundidee, deklarative Konfigurationen für verschiedene Systeme zu erstellen,
+ein großer und wichtiger Meilenstein.
+Er soll folgende Eigenschaften sicherstellen:
+
+- Dokumentation von Änderungen an Systemen
+- schnelle Neuinstallation auf neuen Geräten
+- Nutzung von Synergien bei unterschiedlichen Zielgeräten mit Überschnitten (bspw. Webbrowser, Tools etc.)
+- Synchronisation von Paketen zwischen bestehenden Systemen
+
+Neu hinzu kommt allerdings in Folge der Versuche in diesem Projekt die folgende Eigenschaft:
+
+- einfache Handhabe und Neuinstallation
+
+Die genauen Hintergründe sind unter xref:historie/wechsel-decman.adoc[] beschrieben.
+In 2026 erfolgt der Versuch der Nutzung von Decman für die Verbindung von Arch als sehr gutem Betriebssystem und einer deklarativen Konfiguration als Basis.
+====
 
 [#ziele]
 == Ziele
@@ -69,19 +89,13 @@ Die nachfolgenden Unterscheidungen können getroffen werden.
 Das Betriebssystem des Zielgeräts entscheidet maßgeblich über die Art der eingesetzten
 Lösung.
 
-[#os-nixos]
-NixOS::
-Der optimale (aber auch komplexeste) Fall ist der Einsatz eines vollwertigen
-NixOS-Geräts.
-Die installierten Programme können über den Nix-Paketmanager verwaltet werden,
-die Konfiguration des Systems erfolgt ebenfalls als Code. +
-Das Repo enthält hier die vollständige Systembeschreibung.
-
-Linux (bspw. Arch) mit Nix-Manager::
-Aber auch andere Linux-Systeme sollen unterstützt werden,
-solange der Nix-Paketmanager als Basis verwendet wird. +
-Das Repo enthält hier die Konfiguration für die vom Nix-Manager
-zu installierenden Inhalte.
+Arch Linux mit Decman::
+Hauptziel der Konfigurationen sind Linux-Systeme mit Arch Linux.
+Durch seine Einfachheit und hohe Anpassbarkeit ist Arch eine hervorragende Basis für das Zielbild.
+Wann immer möglich soll bei neuen (nicht-mobilen) Endgeräten Arch genutzt werden können.
+Um hier deklarativ vorgehen zu können, wird statt dem hauseigenen `pacman` der alternative Paketmanager
+`decman` eingesetzt, welcher die Funktionalitäten von `pacman`, `yay` (AUR) und `flatpak` in einer
+deklarativen Konfiguration vereint.
 
 Windows::
 Oft werden auch Windowssysteme benötigt.
@@ -100,14 +114,8 @@ Doch nicht nur das Betriebssystem, sondern auch der Zeitpunkt des Einspielens
 ist eine relevante Unterscheidung.
 
 Neuinstallation::
-Soll ein System neu aufgesetzt werden, ist das Ziel dieses Projektes,
-die komplette Einrichtung durchzuführen.
-Die Systeme sollen mit allen relevanten Programmen ausgestattet
-und bestmöglich automatisch konfiguriert werden.
-Das ist natürlich auf xref:os-nixos[NixOS] einfacher zu realisieren,
-als auf anderen Systemen.
-Eine Neuinstallation von Arch ist nach erfolgreicher Umsetzung dieses
-Projekts nicht mehr sinnvoll.
+Die Neuinstallation eines Systems soll weitgehend automatisch und ohne nötige Anpassungen und
+Konfigurationen erfolgen.
 Auf Windows kann nur "möglichst viel" automatisiert durchgeführt werden.
 
 Bestehendes System::
@@ -132,13 +140,14 @@ Aktuell beschrieben ist die Einrichtung auf den folgenden Systemtypen:
 - xref:einrichtung/arch.adoc[Bestehendes Arch-System]
 
 == Zusammenstellung der Module
-Der Aufbau der Konfigurationen ist in der zentralen `flake.nix`-Datei beschrieben.
-Ein Host-System setzt sich dabei aus zwei Teilen zusammen:
+Der Aufbau der Konfigurationen ist in der jeweiligen, zentralen Host-Datei beschrieben.
+Die Konfigurationsmodule teilen sich in:
 
 1. die Host-Datei (`hosts/hostname.nix`).
-Sie beschreibt den konfigurativen Part eines Hosts.
+Sie enthält die Information, welche Pakete auf dem System benötigt werden.
+Außerdem beschreibt sie nach Möglichkeit den konfigurativen Part eines Hosts.
 So kann sie zum Beispiel dot-Files oder Credentials steuern oder Einstellungen beinhalten.
-2. die Modul-Dateien (`nix-modules/modulname.nix`),
+2. die Modul-Dateien (`modules-decman/modulname.py`),
 Sie enthalten die zu installierenden Abhängigkeiten.
 Ein Host teilt sich in mehrere Module auf, um möglichst präzise steuern zu können,
 welche Arten Abhängigkeiten benötigt werden.

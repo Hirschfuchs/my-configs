@@ -1,4 +1,5 @@
 from base import HostBase
+from modules_decman.betriebssystem import Betriebssystem
 
 from modules_decman.hilfsprogramme import Hilfsprogramme
 from modules_decman.standardprogramme import Standardprogramme
@@ -12,6 +13,7 @@ class TechtornadoArch(HostBase):
         super().__init__(
             "techtornado-arch",
             submodules=[
+                Betriebssystem(),
                 Hilfsprogramme(),
                 Standardprogramme(),
                 Entwicklung(),

@@ -6,11 +6,13 @@ class Standardprogramme(SubModule):
         super().__init__(
             "standardprogramme",
             native_packages=[
-                # Browser
-                "firefox",
                 # Passwortmanager
                 "keepass",
                 # Taschenrechner
                 "qalculate-qt"
+            ],
+            aur_packages=[
+                # Browser
+                "google-chrome",
             ]
         )

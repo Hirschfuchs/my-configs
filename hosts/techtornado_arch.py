@@ -4,6 +4,7 @@ from modules_decman.hilfsprogramme import Hilfsprogramme
 from modules_decman.standardprogramme import Standardprogramme
 from modules_decman.entwicklung import Entwicklung
 from modules_decman.kommunikation_privat import KommunikationPrivat
+from modules_decman.hardware_coburg import HardwareCoburg
 
 
 class TechtornadoArch(HostBase):
@@ -14,6 +15,7 @@ class TechtornadoArch(HostBase):
                 Hilfsprogramme(),
                 Standardprogramme(),
                 Entwicklung(),
-                KommunikationPrivat()
+                KommunikationPrivat(),
+                HardwareCoburg()
             ],
         )

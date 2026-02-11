@@ -1,7 +1,7 @@
 = Moduldokumentation
 Beschreibung der im Repo enthaltenen Module
 
-Diese Dokumentation beschreibt die konfigurierten Nix-Module.
+Diese Dokumentation beschreibt die konfigurierten Decman-Module.
 Sie soll den Entwurf der Modulstruktur festhalten und die Entscheidung
 über zu verwendende Module für einen neuen Host unterstützen.
 
@@ -26,19 +26,9 @@ mod -down-> sub
 Auf der oberen Ebene sind abstraktere Gruppen, wie "Arbeit" oder "Gaming" beschrieben,
 während auf der Submodul-Ebene die konkreten Abhängigkeiten gelistet sind.
 
-== Auflistung aller Module
-// TODO
+== Dokumentation der einzelnen Module
 
-// === Hauptebene
-// include::hauptebene.adoc[leveloffset=2]
-//
-// === Submodulebene
-// include::submodule.adoc[leveloffset=2]
-
-=== Einzelauflistung
-
-==== Hilfsprogramme
-include::einzel/hilfsprogramme.adoc[leveloffset=4]
-
-==== Entwicklungsumgebungen
-include::einzel/
+Jedes installierte Paket soll einen zugehörigen Kommentar erhalten, welcher dessen Zweck beschreibt.
+Eine Aufschlüsselung aller Pakete in der Dokumentation, wie ursprünglich geplant, wird nicht erfolgen,
+da diese schnell von der tatsächlichen Deklaration abweicht.
+Die automatische Erzeugung der Dokumentation kann in der Zukunft in Erwägung gezogen werden.

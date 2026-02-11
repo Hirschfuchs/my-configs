@@ -1,4 +1,5 @@
 from base import SubModule
+from modules_decman.hardware.behringer import Behringer
 from modules_decman.hardware.streamdeck import Streamdeck
 from modules_decman.hardware.webcam import Webcam
 
@@ -8,6 +9,7 @@ class HardwareCoburg(SubModule):
         super().__init__(
             "hardware-coburg",
             submodules=[
+                Behringer(),
                 Webcam(),
                 Streamdeck()
             ]

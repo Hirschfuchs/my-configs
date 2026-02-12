@@ -9,7 +9,9 @@ class Standardprogramme(SubModule):
                 # Passwortmanager
                 "keepass",
                 # Taschenrechner
-                "qalculate-qt"
+                "qalculate-qt",
+                # Partitionsmanager
+                "partitionmanager",
             ],
             aur_packages=[
                 # Browser

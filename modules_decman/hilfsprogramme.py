@@ -24,6 +24,10 @@ class Hilfsprogramme(SubModule):
                 "age",
                 # Dateiverschlüsselungseditor
                 "sops",
+                # Darstellung von Systeminformationen
+                "fastfetch",
+                # Autovervollständigung in der Bash
+                "bash-completion"
             ],
             aur_packages=[
                 # GUI für Git (ersetzt gitg)

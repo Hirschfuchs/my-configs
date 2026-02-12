@@ -13,6 +13,7 @@ from modules_decman.standardprogramme import Standardprogramme
 from modules_decman.entwicklung import Entwicklung
 from modules_decman.kommunikation_privat import KommunikationPrivat
 from modules_decman.hardware_coburg import HardwareCoburg
+from modules_decman.textverarbeitung import Textverarbeitung
 
 
 class TechtornadoArch(HostBase):
@@ -24,6 +25,7 @@ class TechtornadoArch(HostBase):
                 Desktop(),
                 Hilfsprogramme(),
                 Standardprogramme(),
+                Textverarbeitung(),
                 Entwicklung(),
                 KommunikationPrivat(),
                 KommunikationWeitere(),

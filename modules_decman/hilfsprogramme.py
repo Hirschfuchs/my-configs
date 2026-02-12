@@ -12,6 +12,8 @@ class Hilfsprogramme(SubModule):
                 "vim",
                 # Bildverarbeitung
                 "imagemagick"
+                # Dokumentenverwaltung
+                "pandoc-cli",
                 # Versionsverwaltung
                 "git",
                 # Unterstützung großer Dateien in Git

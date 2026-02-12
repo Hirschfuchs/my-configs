@@ -12,8 +12,6 @@ class KommunikationWeitere(SubModule):
                 "teamspeak3",
             ],
             aur_packages=[
-                # Webex
-                "webex-bin",
                 # Zoom
                 "zoom",
             ]

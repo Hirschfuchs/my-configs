@@ -5,6 +5,7 @@ from modules_decman.arch_basis.firmware_treiber.gpu_nvidia import GpuNvidia
 from modules_decman.betriebssystem import Betriebssystem
 
 from modules_decman.hilfsprogramme import Hilfsprogramme
+from modules_decman.kommunikation_weitere import KommunikationWeitere
 from modules_decman.spotify import Spotify
 from modules_decman.standardprogramme import Standardprogramme
 from modules_decman.entwicklung import Entwicklung
@@ -22,6 +23,7 @@ class TechtornadoArch(HostBase):
                 Standardprogramme(),
                 Entwicklung(),
                 KommunikationPrivat(),
+                KommunikationWeitere(),
                 HardwareCoburg(),
                 CpuIntel(),
                 GpuNvidia(),

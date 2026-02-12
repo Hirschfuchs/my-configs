@@ -1,6 +1,7 @@
 from base import SubModule
 from modules_decman.arch_basis.arch_basisdienste import ArchBasisdienste
 from modules_decman.arch_basis.arch_minimum import ArchMinimum
+from modules_decman.arch_basis.audio import Audio
 from modules_decman.arch_basis.bluetooth import Bluetooth
 
 
@@ -12,5 +13,6 @@ class Betriebssystem(SubModule):
                 ArchMinimum(),
                 ArchBasisdienste(),
                 Bluetooth(),
+                Audio(),
             ]
         )

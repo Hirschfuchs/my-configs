@@ -3,6 +3,7 @@ from modules_decman.hardware.behringer import Behringer
 from modules_decman.hardware.drucker_brother import DruckerBrother
 from modules_decman.hardware.hardware_monitoring import HardwareMonitoring
 from modules_decman.hardware.razer import Razer
+from modules_decman.hardware.rgb_beleuchtung import RgbBeleuchtung
 from modules_decman.hardware.streamdeck import Streamdeck
 from modules_decman.hardware.webcam import Webcam
 
@@ -18,5 +19,6 @@ class HardwareCoburg(SubModule):
                 Streamdeck(),
                 DruckerBrother(),
                 HardwareMonitoring(),
+                RgbBeleuchtung(),
             ]
         )

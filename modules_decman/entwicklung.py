@@ -1,4 +1,5 @@
 from base import SubModule
+from modules_decman.programmieren.programmiersprachen import Programmiersprachen
 
 
 class Entwicklung(SubModule):
@@ -21,4 +22,7 @@ class Entwicklung(SubModule):
                 # HTTP Client
                 "postman-bin"
             ],
+            submodules=[
+                Programmiersprachen(),
+            ]
         )

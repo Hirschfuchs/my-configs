@@ -1,6 +1,7 @@
 from base import SubModule
 from modules_decman.programmieren.datenbanken import Datenbanken
 from modules_decman.programmieren.programmiersprachen import Programmiersprachen
+from modules_decman.programmieren.sonstiges import EntwicklungSonstiges
 
 
 class Entwicklung(SubModule):
@@ -26,5 +27,6 @@ class Entwicklung(SubModule):
             submodules=[
                 Programmiersprachen(),
                 Datenbanken(),
+                EntwicklungSonstiges(),
             ]
         )

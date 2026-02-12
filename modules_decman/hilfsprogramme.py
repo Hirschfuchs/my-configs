@@ -14,6 +14,8 @@ class Hilfsprogramme(SubModule):
                 "imagemagick"
                 # Versionsverwaltung
                 "git",
+                # Unterstützung großer Dateien in Git
+                "git-lfs"
                 # Terminal
                 "kitty",
                 # Editor (ersetzt Sublime)
@@ -23,4 +25,8 @@ class Hilfsprogramme(SubModule):
                 # Dateiverschlüsselungseditor
                 "sops",
             ],
+            aur_packages=[
+                # GUI für Git (ersetzt gitg)
+                "git-cola"
+            ]
         )

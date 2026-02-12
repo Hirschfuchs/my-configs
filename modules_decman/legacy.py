@@ -11,5 +11,9 @@ class Legacy(SubModule):
             native_packages=[
                 # Obsidian Notizen (könnte durch Typst ersetzt werden (wie auch TeX))
                 "obsidian",
+                # Automationstool für X11 (bisher nicht aktiv genutzt, aber könnte cool sein)
+                "xdotool"
+                # Festlegung von Tastenkombinationen zur Ausführung von Befehlen (i.V.m. xdotool)
+                "xbindkeys"
             ]
         )

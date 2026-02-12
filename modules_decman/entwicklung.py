@@ -1,4 +1,5 @@
 from base import SubModule
+from modules_decman.programmieren.datenbanken import Datenbanken
 from modules_decman.programmieren.programmiersprachen import Programmiersprachen
 
 
@@ -24,5 +25,6 @@ class Entwicklung(SubModule):
             ],
             submodules=[
                 Programmiersprachen(),
+                Datenbanken(),
             ]
         )

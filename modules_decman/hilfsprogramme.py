@@ -30,6 +30,8 @@ class Hilfsprogramme(SubModule):
                 "krename",
                 # Dateivergleich
                 "kdiff3",
+                # Erkennung von Packages, die neu gebaut werden müssen
+                "rebuild-detector",
                 # Darstellung von Systeminformationen
                 "fastfetch",
                 # Autovervollständigung in der Bash

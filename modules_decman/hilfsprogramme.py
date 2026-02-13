@@ -46,5 +46,7 @@ class Hilfsprogramme(SubModule):
                 "git-cola"
                 # Komprimierung (RAR)
                 "rar",
+                # Autoklicker
+                "xautoclick",
             ]
         )

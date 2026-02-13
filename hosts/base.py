@@ -9,15 +9,27 @@ class HostBase(decman.Module):
 
         native = []
         foreign = []
+        flatpak = []
 
         for module in submodules:
-            sub_native, sub_foreign = module.collect_packages()
+            sub_native, sub_foreign, sub_flatpak = module.collect_packages()
             native.extend(sub_native)
             foreign.extend(sub_foreign)
+            flatpak.extend(sub_flatpak)
 
         # Duplikate entfernen
         native = sorted(set(native))
         foreign = sorted(set(foreign))
+        flatpak = sorted(set(flatpak))
 
         decman.pacman.packages |= set(native)
         decman.aur.packages |= set(foreign)
+        decman.flatpak.packages |= set(flatpak)
+
+        decman.execution_order = [
+            "files",
+            "pacman",
+            "aur",
+            "flatpak",
+            "systemd",
+        ]

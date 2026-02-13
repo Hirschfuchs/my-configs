@@ -1,4 +1,5 @@
 from base import HostBase
+from modules_decman.a11y import A11y
 from modules_decman.bildbearbeitung import Bildbearbeitung
 from modules_decman.arch_basis.firmware_treiber.cpu_intel import CpuIntel
 from modules_decman.arch_basis.firmware_treiber.gpu_nvidia import GpuNvidia
@@ -39,6 +40,7 @@ class TechtornadoArch(HostBase):
                 Gaming(),
                 Bildbearbeitung(),
                 Spotify(),
+                A11y(),
                 Fun(),
                 Legacy(),
             ],

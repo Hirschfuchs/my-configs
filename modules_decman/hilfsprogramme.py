@@ -30,6 +30,8 @@ class Hilfsprogramme(SubModule):
                 "krename",
                 # Dateivergleich
                 "kdiff3",
+                # "Als PDF drucken" für CUPS Druckservice
+                "cups-pdf",
                 # Erkennung von Packages, die neu gebaut werden müssen
                 "rebuild-detector",
                 # Darstellung von Systeminformationen

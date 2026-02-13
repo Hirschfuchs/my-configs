@@ -9,6 +9,8 @@ class Gaming(SubModule):
             native_packages=[
                 # Steam Client
                 "steam",
+                # Mapper für Gamepads & Joysticks
+                "antimicrox",
             ],
             aur_packages=[
                 # Cutechess Schach

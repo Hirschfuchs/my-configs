@@ -26,6 +26,8 @@ class Hilfsprogramme(SubModule):
                 "age",
                 # Dateiverschlüsselungseditor
                 "sops",
+                # Komprimierung
+                "zip",
                 # App für Batch-Umbenennungen
                 "krename",
                 # Dateivergleich
@@ -42,5 +44,7 @@ class Hilfsprogramme(SubModule):
             aur_packages=[
                 # GUI für Git (ersetzt gitg)
                 "git-cola"
+                # Komprimierung (RAR)
+                "rar",
             ]
         )

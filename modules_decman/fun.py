@@ -15,6 +15,6 @@ class Fun(SubModule):
             ],
             aur_packages=[
                 # Katze zum Jagen meiner Maus
-                "oneko"
+                "oneko",
             ]
         )

@@ -7,6 +7,6 @@ class KommunikationPrivat(SubModule):
             "kommunikation-privat",
             native_packages=[
                 # Discord
-                "discord"
+                "discord",
             ]
         )

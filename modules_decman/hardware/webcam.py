@@ -9,6 +9,6 @@ class Webcam(SubModule):
                 # OBSBOT Tiny Steuerung (GUI)
                 "tiny4linux-gui",
                 # OBSBOT Tiny Steuerung (CLI)
-                "tiny4linux-cli"
+                "tiny4linux-cli",
             ]
         )

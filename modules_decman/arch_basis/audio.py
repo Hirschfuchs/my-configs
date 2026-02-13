@@ -14,10 +14,10 @@ class Audio(SubModule):
                 "alsa-utils",
 
                 # ALSA-OSS-Brücke
-                "alsa-oss"
+                "alsa-oss",
             ],
             aur_packages=[
                 # Alter Open Sound System Treiber
-                "oss"
+                "oss",
             ]
         )

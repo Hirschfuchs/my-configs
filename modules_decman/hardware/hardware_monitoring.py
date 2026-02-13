@@ -9,6 +9,6 @@ class HardwareMonitoring(SubModule):
                 # Überhitzungsschutz
                 "thermald",
                 # SSD Schutz (S.M.A.R.T)
-                "smartmontools"
+                "smartmontools",
             ]
         )

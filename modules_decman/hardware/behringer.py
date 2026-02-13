@@ -7,6 +7,6 @@ class Behringer(SubModule):
             "behringer-programme",
             aur_packages=[
                 # GUI für Behringer X-Air
-                "xairedit"
+                "xairedit",
             ]
         )

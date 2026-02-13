@@ -11,7 +11,7 @@ class Lenkrad(SubModule):
                 # Steuerung von MOZA Lenkrädern
                 "boxflat-git",
                 # Kernel für Thrustmaster Lenkräder
-                # "hid-tmff2-dkms-git"
+                # "hid-tmff2-dkms-git",
                 # PIDFF Treiber mit Fixes für Force Feedback
                 "universal-pidff-dkms-git",
             ]

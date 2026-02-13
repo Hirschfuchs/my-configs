@@ -9,6 +9,6 @@ class XOrg(SubModule):
                 # Xorg Display Server
                 "xorg-server",
                 # Xorg Direkteinstieg
-                "xorg-init"
+                "xorg-xinit",
             ]
         )

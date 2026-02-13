@@ -24,7 +24,7 @@ class Entwicklung(SubModule):
                 # Arduino IDE
                 "arduino-ide-bin",
                 # HTTP Client
-                "postman-bin"
+                "postman-bin",
             ],
             submodules=[
                 Programmiersprachen(),

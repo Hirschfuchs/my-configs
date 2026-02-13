@@ -1,4 +1,5 @@
 from base import SubModule
+from modules_decman.backup import Backup
 
 
 class Standardprogramme(SubModule):
@@ -18,5 +19,8 @@ class Standardprogramme(SubModule):
                 "google-chrome",
                 # elektronischer Ausweis
                 "ausweisapp2",
+            ],
+            submodules=[
+                Backup()
             ]
         )

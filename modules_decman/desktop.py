@@ -54,6 +54,8 @@ class Desktop(SubModule):
                 "gnome-user-share",
                 # E-Mail-Client
                 "evolution",
+                # Lautstärkeregler
+                "pavucontrol",
                 # Snapshot-Funktionalität
                 "snapshot",
                 # Hilfe-Betrachter für GNOME-Dokumentation (nötig für die Hilfe-Funktion vieler Apps)

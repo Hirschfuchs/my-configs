@@ -16,5 +16,9 @@ class Betriebssystem(SubModule):
                 Bluetooth(),
                 Audio(),
                 XOrg(),
+            ],
+            aur_packages=[
+                # Decman muss sich selbst kennen
+                "decman",
             ]
         )

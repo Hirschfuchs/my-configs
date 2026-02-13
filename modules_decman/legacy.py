@@ -15,5 +15,9 @@ class Legacy(SubModule):
                 "xdotool"
                 # Festlegung von Tastenkombinationen zur Ausführung von Befehlen (i.V.m. xdotool)
                 "xbindkeys"
+            ],
+            aur_packages=[
+                # Snap-Paketmanager (benötigt für TK-Safe)
+                "snapd"
             ]
         )

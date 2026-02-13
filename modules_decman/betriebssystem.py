@@ -3,6 +3,7 @@ from modules_decman.arch_basis.arch_basisdienste import ArchBasisdienste
 from modules_decman.arch_basis.arch_minimum import ArchMinimum
 from modules_decman.arch_basis.audio import Audio
 from modules_decman.arch_basis.bluetooth import Bluetooth
+from modules_decman.arch_basis.netzwerk import Netzwerk
 from modules_decman.arch_basis.xorg import XOrg
 
 
@@ -13,6 +14,7 @@ class Betriebssystem(SubModule):
             submodules=[
                 ArchMinimum(),
                 ArchBasisdienste(),
+                Netzwerk(),
                 Bluetooth(),
                 Audio(),
                 XOrg(),

@@ -9,4 +9,8 @@ class Controller(SubModule):
                 # Mapper für Gamepads & Joysticks
                 "antimicrox",
             ],
+            aur_packages=[
+                # Unterstützung für das Microsoft Game Input Protocol (XBox-Controller)
+                "xone-dkms",
+            ]
         )

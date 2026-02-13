@@ -1,0 +1,166 @@
+Native:
+    aircrack-ng
+    ant
+    appmenu-gtk-module
+    ardour (DAW)
+    bc (Commandline Taschenrechner)
+    bind (Lokaler DNS-Server)
+    calibre (Verwaltung & Konvertierung von E-Books)
+    conky (Systemmonitor)
+    epiphany
+    evince (GNOME-PDF-Viewer, wird ersetzt durch Browser oder Spezialtools)
+    expect
+    fakechroot
+    flatpak
+    ghex (GNOME HEX-Editor)
+    gnome-calculator
+    gnome-calendar
+    gnome-characters
+    gnome-clocks
+    gnome-connections
+    gnome-contacts
+    gnome-font-viewer
+    gnome-keyring
+    gnome-logs
+    gnome-maps
+    gnome-music
+    gnome-remote-desktop
+    gnome-software
+    gnome-text-editor
+    gnome-tour
+    gnome-user-docs
+    gnome-weather
+    gpaste (Clipboard-Management, glaube ich nie genutzt)
+    grilo-plugins
+    gtest
+    gunicorn
+    gvfs-afc
+    gvfs-goa
+    gvfs-google
+    gvfs-gphoto2
+    gvfs-mtp
+    gvfs-nfs
+    krusader (2-Fenster-Dateimanager, Nautilus genügt vorerst)
+    libappindicator
+    libcurl-gnutls
+    libgbinder
+    localsearch (enthalten mit Nautilus)
+    loupe (ersetzt durch qimgv)
+    lutris
+    meson
+    minicom
+    nfs-utils
+    nix
+    noise-suppression-for-voice
+    ntfs-3g
+    openvpn
+    paperwork (ersetzt durch Paperless-NGX)
+    patchelf (NixOS)
+    pdftk
+    psutils
+    python-build
+    python-django
+    python-django-allauth
+    python-django-rest-framework
+    python-gbinder
+    python-installer
+    python-jinja
+    python-poetry-core
+    python-psycopg2
+    python-tomlkit
+    python-virtualenv
+    python-wheel
+    qt5-quickcontrols2
+    qt6-declarative
+    qt6-scxml
+    qt6-shadertools
+    qt6-svg
+    qt6-tools
+    qt6-websockets
+    redshift (glaube ich in GNOME enthalten)
+    remind (Kalenderprogramm, niemals genutzt)
+    rygel (UPnP Server, bei Bedarf nachinstallieren)
+    sigil (EPub-Editor, bei Bedarf nachinstallieren)
+    simple-scan (Über Drucker-FTP abgedeckt)
+    strace
+    stress (Stresstest-Tool für CPU & System)
+    syncthing
+    tcsh (UNIX C Shell)
+    terminator
+    tesseract (CLI-OCR-Tool)
+    texlive-basic
+    texlive-bibtexextra
+    texlive-binextra
+    texlive-context
+    texlive-fontsextra
+    texlive-fontsrecommended
+    texlive-fontutils
+    texlive-formatsextra
+    texlive-games
+    texlive-humanities
+    texlive-latex
+    texlive-latexextra
+    texlive-latexrecommended
+    texlive-luatex
+    texlive-mathscience
+    texlive-metapost
+    texlive-music
+    texlive-pictures
+    texlive-plaingeneric
+    texlive-pstricks
+    texlive-publishers
+    texlive-xetex
+    tk
+    totem (GNOME-Videoplayer, ersetzt durch vlc)
+    vala
+    wine
+    winetricks
+    wireshark-qt
+    yarn
+    zoxide
+
+Foreign:
+    auracle-git
+    bitwig-studio (DAW)
+    gnu-netcat
+    godot-git
+    haveibeenpwned-downloader-git (evtl. später; i.V.m. Keepass Plugin)
+    jitsi (IP-Telefonie, muss später neu gedacht werden)
+    jre
+    json-sh
+    lampe
+    lampe-bash
+    lampe-debug
+    libcutechess
+    libcutechess-docs
+    libflashsupport-oss (Why)
+    magic (why http://opencircuitdesign.com/magic/)
+    msi-rgb
+    naps2 (ersetzt durch Paperless-NGX)
+    ocrmypdf (ersetzt durch Paperless-NGX)
+    opera
+    oss-debug
+    python-celery
+    python-configula
+    python-dj-config-url
+    python-dj-database-url
+    python-django-celery-results
+    python-django-dynamic-preferences
+    python-django-modelcluster
+    python-django-rest-knox
+    python-django-taggit
+    python-gbinder-debug
+    python-ocrmypdf-papermerge
+    python-pdf2image
+    python-persisting-theory
+    python-salinic
+    qt5-remoteobjects
+    r-quick-share-debug
+    rrcc (Ersetzt durch HomeAssistant)
+    rrcc-debug
+    rustrover
+    rustrover-jre
+    webstorm-jre
+    xvkbd (Virtuelles Keyboard, wtf)
+    yay
+    yay-debug

@@ -4,6 +4,7 @@ from modules_decman.arch_basis.firmware_treiber.cpu_intel import CpuIntel
 from modules_decman.arch_basis.firmware_treiber.gpu_nvidia import GpuNvidia
 from modules_decman.betriebssystem import Betriebssystem
 from modules_decman.desktop import Desktop
+from modules_decman.fun import Fun
 from modules_decman.gaming import Gaming
 
 from modules_decman.hilfsprogramme import Hilfsprogramme
@@ -38,6 +39,7 @@ class TechtornadoArch(HostBase):
                 Gaming(),
                 Bildbearbeitung(),
                 Spotify(),
+                Fun(),
                 Legacy(),
             ],
         )

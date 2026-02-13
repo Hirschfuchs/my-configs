@@ -1,4 +1,4 @@
-from base import SubModule
+from .base import SubModule
 from modules_decman.hardware.behringer import Behringer
 from modules_decman.hardware.drucker_brother import DruckerBrother
 from modules_decman.hardware.hardware_monitoring import HardwareMonitoring

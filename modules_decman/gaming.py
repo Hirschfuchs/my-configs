@@ -26,6 +26,9 @@ class Gaming(SubModule):
                 "minecraft-launcher",
                 # Technic Launcher (optional)
                 "minecraft-technic-launcher",
+                #
+                # Starten von Java-Webanwendungen (StellwerkSim)
+                "openwebstart-bin",
             ],
             submodules=[
                 Lenkrad(),

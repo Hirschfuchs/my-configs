@@ -1,0 +1,6 @@
+[project]
+name = "my-configs"
+version = "2026.0.0"
+dependencies = [
+    "decman @ git+https://github.com/kiviktnm/decman.git@1.1.0"
+]

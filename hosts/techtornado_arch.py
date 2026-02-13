@@ -19,6 +19,7 @@ from modules_decman.entwicklung import Entwicklung
 from modules_decman.kommunikation_privat import KommunikationPrivat
 from modules_decman.hardware_coburg import HardwareCoburg
 from modules_decman.textverarbeitung import Textverarbeitung
+from modules_decman.virtualisierung import Virtualisierung
 
 
 class TechtornadoArch(HostBase):
@@ -38,6 +39,7 @@ class TechtornadoArch(HostBase):
                 HardwareCoburg(),
                 CpuIntel(),
                 GpuNvidia(),
+                Virtualisierung(),
                 Gaming(),
                 Bildbearbeitung(),
                 Spotify(),

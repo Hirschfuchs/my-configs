@@ -7,6 +7,6 @@ class DruckerBrother(SubModule):
             "brother mfc-j5730dw",
             aur_packages=[
                 # Drucker Treiber
-                "brother-mfc-j5730dw"
+                "brother-mfc-j5730dw",
             ]
         )

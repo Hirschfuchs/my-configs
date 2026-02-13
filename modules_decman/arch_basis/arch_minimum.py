@@ -15,6 +15,6 @@ class ArchMinimum(SubModule):
                 # Ermöglichen von Paketbau
                 "base-devel",
                 # Netzwerkverbindung ermöglichen
-                "networkmanager"
+                "networkmanager",
             ]
         )

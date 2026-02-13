@@ -12,12 +12,12 @@ class Legacy(SubModule):
                 # Obsidian Notizen (könnte durch Typst ersetzt werden (wie auch TeX))
                 "obsidian",
                 # Automationstool für X11 (bisher nicht aktiv genutzt, aber könnte cool sein)
-                "xdotool"
+                "xdotool",
                 # Festlegung von Tastenkombinationen zur Ausführung von Befehlen (i.V.m. xdotool)
-                "xbindkeys"
+                "xbindkeys",
             ],
             aur_packages=[
                 # Snap-Paketmanager (benötigt für TK-Safe)
-                "snapd"
+                "snapd",
             ]
         )

@@ -11,13 +11,13 @@ class Hilfsprogramme(SubModule):
                 # VIM für Notizen im Terminal
                 "vim",
                 # Bildverarbeitung
-                "imagemagick"
+                "imagemagick",
                 # Dokumentenverwaltung
                 "pandoc-cli",
                 # Versionsverwaltung
                 "git",
                 # Unterstützung großer Dateien in Git
-                "git-lfs"
+                "git-lfs",
                 # Terminal
                 "kitty",
                 # Editor (ersetzt Sublime)
@@ -39,11 +39,11 @@ class Hilfsprogramme(SubModule):
                 # Darstellung von Systeminformationen
                 "fastfetch",
                 # Autovervollständigung in der Bash
-                "bash-completion"
+                "bash-completion",
             ],
             aur_packages=[
                 # GUI für Git (ersetzt gitg)
-                "git-cola"
+                "git-cola",
                 # Komprimierung (RAR)
                 "rar",
                 # Autoklicker

@@ -7,7 +7,7 @@ class Backup(SubModule):
             "backup",
             native_packages=[
                 # Backend für Backups
-                "borg"
+                "borg",
                 # Frontend für Borg Backup
                 "vorta",
             ]

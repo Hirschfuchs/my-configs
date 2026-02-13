@@ -19,6 +19,8 @@ class Standardprogramme(SubModule):
                 "google-chrome",
                 # elektronischer Ausweis
                 "ausweisapp2",
+                # Bildbetrachter (ersetzt Gwenview)
+                "qimgv-git",
             ],
             submodules=[
                 Backup()

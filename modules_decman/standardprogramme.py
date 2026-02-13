@@ -22,6 +22,8 @@ class Standardprogramme(SubModule):
                 "ausweisapp2",
                 # Bildbetrachter (ersetzt Gwenview)
                 "qimgv-git",
+                # PDF-Bearbeitung
+                "pdf4qt",
             ],
             submodules=[
                 Backup(),

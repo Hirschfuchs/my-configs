@@ -1,3 +1,4 @@
+from .arch_basis.keys import Keys
 from .base import SubModule
 from modules_decman.arch_basis.arch_basisdienste import ArchBasisdienste
 from modules_decman.arch_basis.arch_minimum import ArchMinimum
@@ -18,6 +19,7 @@ class Betriebssystem(SubModule):
                 Bluetooth(),
                 Audio(),
                 XOrg(),
+                Keys(),
             ],
             aur_packages=[
                 # Decman muss sich selbst kennen

@@ -20,12 +20,14 @@ class Standardprogramme(SubModule):
             aur_packages=[
                 # Browser
                 "google-chrome",
-                # elektronischer Ausweis
-                "ausweisapp2",
                 # Bildbetrachter (ersetzt Gwenview)
                 "qimgv-git",
                 # PDF-Bearbeitung
                 "pdf4qt",
+            ],
+            flatpak_packages=[
+                # elektronischer Ausweis
+                "de.bund.ausweisapp.ausweisapp2",
             ],
             submodules=[
                 Backup(),

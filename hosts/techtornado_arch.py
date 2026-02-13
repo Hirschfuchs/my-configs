@@ -14,6 +14,7 @@ from modules_decman.individualisierung import Individualisierung
 from modules_decman.kommunikation_weitere import KommunikationWeitere
 from modules_decman.legacy import Legacy
 from modules_decman.medien_verarbeitung import MedienVerarbeitung
+from modules_decman.musizieren import Musizieren
 from modules_decman.spotify import Spotify
 from modules_decman.standardprogramme import Standardprogramme
 from modules_decman.entwicklung import Entwicklung
@@ -45,6 +46,7 @@ class TechtornadoArch(HostBase):
                 Gaming(),
                 Bildbearbeitung(),
                 Spotify(),
+                Musizieren(),
                 Bildschirmaufnahme(),
                 A11y(),
                 Fun(),

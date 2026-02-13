@@ -10,6 +10,7 @@ from modules_decman.fun import Fun
 from modules_decman.gaming import Gaming
 
 from modules_decman.hilfsprogramme import Hilfsprogramme
+from modules_decman.individualisierung import Individualisierung
 from modules_decman.kommunikation_weitere import KommunikationWeitere
 from modules_decman.legacy import Legacy
 from modules_decman.medien_verarbeitung import MedienVerarbeitung
@@ -39,6 +40,7 @@ class TechtornadoArch(HostBase):
                 HardwareCoburg(),
                 CpuIntel(),
                 GpuNvidia(),
+                Individualisierung(),
                 Virtualisierung(),
                 Gaming(),
                 Bildbearbeitung(),

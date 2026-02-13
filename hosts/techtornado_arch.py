@@ -9,6 +9,7 @@ from modules_decman.gaming import Gaming
 from modules_decman.hilfsprogramme import Hilfsprogramme
 from modules_decman.kommunikation_weitere import KommunikationWeitere
 from modules_decman.legacy import Legacy
+from modules_decman.medien_verarbeitung import MedienVerarbeitung
 from modules_decman.spotify import Spotify
 from modules_decman.standardprogramme import Standardprogramme
 from modules_decman.entwicklung import Entwicklung
@@ -27,6 +28,7 @@ class TechtornadoArch(HostBase):
                 Hilfsprogramme(),
                 Standardprogramme(),
                 Textverarbeitung(),
+                MedienVerarbeitung(),
                 Entwicklung(),
                 KommunikationPrivat(),
                 KommunikationWeitere(),

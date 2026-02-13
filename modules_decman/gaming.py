@@ -1,4 +1,5 @@
 from base import SubModule
+from modules_decman.hardware.controller import Controller
 from modules_decman.hardware.lenkrad import Lenkrad
 
 
@@ -9,8 +10,6 @@ class Gaming(SubModule):
             native_packages=[
                 # Steam Client
                 "steam",
-                # Mapper für Gamepads & Joysticks
-                "antimicrox",
             ],
             aur_packages=[
                 # Cutechess Schach
@@ -32,5 +31,6 @@ class Gaming(SubModule):
             ],
             submodules=[
                 Lenkrad(),
+                Controller(),
             ]
         )

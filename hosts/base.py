@@ -1,5 +1,6 @@
+from sys import stdout
+
 import decman
-from decman.plugins import pacman, aur
 
 
 class HostBase(decman.Module):
@@ -18,5 +19,5 @@ class HostBase(decman.Module):
         native = sorted(set(native))
         foreign = sorted(set(foreign))
 
-        pacman.packages(native)
-        aur.packages(foreign)
+        decman.pacman.packages |= set(native)
+        decman.aur.packages |= set(foreign)

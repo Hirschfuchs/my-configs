@@ -14,6 +14,8 @@ class Standardprogramme(SubModule):
                 "qalculate-qt",
                 # Partitionsmanager
                 "partitionmanager",
+                # Flatpak Paketmanager
+                "flatpak",
             ],
             aur_packages=[
                 # Browser

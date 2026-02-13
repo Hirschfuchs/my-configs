@@ -1,4 +1,4 @@
-from base import SubModule
+from .base import SubModule
 
 
 class Textverarbeitung(SubModule):

@@ -1,4 +1,4 @@
-from base import SubModule
+from .base import SubModule
 from modules_decman.programmieren.datenbanken import Datenbanken
 from modules_decman.programmieren.programmiersprachen import Programmiersprachen
 from modules_decman.programmieren.sonstiges import EntwicklungSonstiges

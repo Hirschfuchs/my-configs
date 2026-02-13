@@ -1,4 +1,4 @@
-from base import SubModule
+from .base import SubModule
 from modules_decman.hardware.lenkrad import Lenkrad
 
 

@@ -1,4 +1,4 @@
-from base import HostBase
+from .base import HostBase
 from modules_decman.a11y import A11y
 from modules_decman.bildbearbeitung import Bildbearbeitung
 from modules_decman.arch_basis.firmware_treiber.cpu_intel import CpuIntel

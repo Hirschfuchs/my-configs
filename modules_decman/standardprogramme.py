@@ -1,4 +1,4 @@
-from base import SubModule
+from .base import SubModule
 from modules_decman.backup import Backup
 from modules_decman.fonts import Fonts
 

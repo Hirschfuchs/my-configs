@@ -14,7 +14,9 @@ class Entwicklung(SubModule):
                 # FTP Client
                 "filezilla",
                 # Farbwähler
-                "eyedropper"
+                "eyedropper",
+                # Automatisierte Codedokumentation
+                "doxygen",
             ],
             aur_packages=[
                 # Jetbrains Tools (IntelliJ, Webstorm & co.)

@@ -20,7 +20,6 @@ Native:
     gnome-connections
     gnome-contacts
     gnome-font-viewer
-    gnome-keyring
     gnome-logs
     gnome-maps
     gnome-music

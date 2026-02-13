@@ -8,5 +8,9 @@ class RgbBeleuchtung(SubModule):
             native_packages=[
                 # Markenübergreifende LED-Steuerung
                 "openrgb",
+            ],
+            aur_packages=[
+                # Nutzung von Hue Entertainment auf Linux
+                "huestacean",
             ]
         )

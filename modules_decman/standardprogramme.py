@@ -1,5 +1,6 @@
 from base import SubModule
 from modules_decman.backup import Backup
+from modules_decman.fonts import Fonts
 
 
 class Standardprogramme(SubModule):
@@ -23,6 +24,7 @@ class Standardprogramme(SubModule):
                 "qimgv-git",
             ],
             submodules=[
-                Backup()
+                Backup(),
+                Fonts()
             ]
         )

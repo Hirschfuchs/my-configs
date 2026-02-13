@@ -10,5 +10,7 @@ class Netzwerk(SubModule):
                 "iw",
                 # Wireless Daemon
                 "iwd",
+                # Paketverfolgung
+                "traceroute",
             ]
         )

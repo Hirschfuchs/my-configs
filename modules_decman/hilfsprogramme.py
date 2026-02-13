@@ -26,6 +26,10 @@ class Hilfsprogramme(SubModule):
                 "age",
                 # Dateiverschlüsselungseditor
                 "sops",
+                # App für Batch-Umbenennungen
+                "krename",
+                # Dateivergleich
+                "kdiff3",
                 # Darstellung von Systeminformationen
                 "fastfetch",
                 # Autovervollständigung in der Bash

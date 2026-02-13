@@ -16,5 +16,7 @@ class Standardprogramme(SubModule):
             aur_packages=[
                 # Browser
                 "google-chrome",
+                # elektronischer Ausweis
+                "ausweisapp2",
             ]
         )

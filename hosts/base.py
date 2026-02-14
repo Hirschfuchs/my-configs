@@ -40,3 +40,5 @@ class HostBase(decman.Module):
             "flatpak",
             "systemd",
         ]
+
+        decman.systemd.enabled_units |= {"NetworkManager.service", "reflector.service"}

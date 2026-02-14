@@ -13,6 +13,6 @@ class Fonts(SubModule):
             ],
             aur_packages=[
                 # Dyslexia Fonts
-                "open-dyslexic-fonts",
+                # "open-dyslexic-fonts",
             ]
         )

@@ -7,6 +7,6 @@ class Streamdeck(SubModule):
             "streamdeck-programme",
             aur_packages=[
                 # Streamdeck Steuerung (GUI)
-                "streamcontroller",
+                # "streamcontroller",
             ]
         )

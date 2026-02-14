@@ -1,11 +1,16 @@
 from sys import stdout
 
 import decman
+import decman.config
+
+from modules_decman.configurations.aur_fix import AurFix
 
 
 class HostBase(decman.Module):
     def __init__(self, name, submodules):
         super().__init__(name)
+
+        decman.modules += [AurFix()]
 
         native = []
         foreign = []
@@ -21,6 +26,8 @@ class HostBase(decman.Module):
         native = sorted(set(native))
         foreign = sorted(set(foreign))
         flatpak = sorted(set(flatpak))
+
+        decman.config.cache_dir = "/var/cache/decman"
 
         decman.pacman.packages |= set(native)
         decman.aur.packages |= set(foreign)

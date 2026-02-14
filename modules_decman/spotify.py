@@ -11,7 +11,7 @@ class Spotify(SubModule):
             ],
             aur_packages=[
                 # CLI-Steuerung für Spotify-Client
-                "spotify-tui",
+                # "spotify-tui",
                 # Skins für Spotify
                 "spicetify-cli",
                 # Marktplatz für Spicetify-Plugins

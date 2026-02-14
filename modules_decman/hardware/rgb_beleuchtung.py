@@ -11,6 +11,6 @@ class RgbBeleuchtung(SubModule):
             ],
             aur_packages=[
                 # Nutzung von Hue Entertainment auf Linux
-                "huestacean",
+                # "huestacean",
             ]
         )

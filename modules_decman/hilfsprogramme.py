@@ -43,10 +43,10 @@ class Hilfsprogramme(SubModule):
             ],
             aur_packages=[
                 # GUI für Git (ersetzt gitg)
-                "git-cola",
+                # "git-cola",
                 # Komprimierung (RAR)
                 "rar",
                 # Autoklicker
-                "xautoclick",
+                # "xautoclick",
             ]
         )

@@ -9,6 +9,8 @@ class Gaming(SubModule):
             "kommunikation-weitere",
             native_packages=[
                 # Steam Client
+                # multilib muss unter /etc/pacman.conf aktiviert werden
+                # TODO: automatisieren
                 "steam",
             ],
             aur_packages=[

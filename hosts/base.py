@@ -1,7 +1,7 @@
-from sys import stdout
-
 import decman
+import os
 import decman.config
+from decman.extras.users import User, UserManager
 
 from modules_decman.configurations.aur_fix import AurFix
 
@@ -42,3 +42,15 @@ class HostBase(decman.Module):
         ]
 
         decman.systemd.enabled_units |= {"NetworkManager.service", "reflector.service"}
+
+        um = UserManager()
+        um.add_user(User(
+            username="builduser",
+            home="/var/lib/builduser",
+            system=True,
+        ))
+
+        os.environ["GNUPGHOME"] = "/var/lib/builduser/gnupg"
+        decman.aur.makepkg_user = "builduser"
+
+        decman.modules += [um]

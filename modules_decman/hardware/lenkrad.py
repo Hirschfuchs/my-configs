@@ -8,11 +8,15 @@ class Lenkrad(SubModule):
             aur_packages=[
                 # Systemweite Verwaltung von Lenkrädern & Force Feedback
                 "oversteer",
-                # Steuerung von MOZA Lenkrädern
-                # "boxflat-git",
                 # Kernel für Thrustmaster Lenkräder
                 # "hid-tmff2-dkms-git",
                 # PIDFF Treiber mit Fixes für Force Feedback
                 "universal-pidff-dkms-git",
+            ],
+            flatpak_packages=[
+                # Steuerung von MOZA Lenkrädern
+                # AUR-Installation wirft Fehler bei Abhängigkeit python-trayer-git
+                # Failed to build package 'python-trayer-git', because the pkg file cannot be determined. Possible files are: []
+                "io.github.lawstorant.boxflat",
             ]
         )

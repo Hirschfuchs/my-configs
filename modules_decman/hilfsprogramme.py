@@ -42,11 +42,14 @@ class Hilfsprogramme(SubModule):
                 "bash-completion",
             ],
             aur_packages=[
-                # GUI für Git (ersetzt gitg)
-                # "git-cola",
                 # Komprimierung (RAR)
                 "rar",
                 # Autoklicker
                 # "xautoclick",
+            ],
+            flatpak_packages=[
+                # GUI für Git (ersetzt gitg)
+                # Fehlende PGP-Signaturen bei Installation der Abgängigkeit garden-tools
+                "com.github.git_cola.git-cola"
             ]
         )

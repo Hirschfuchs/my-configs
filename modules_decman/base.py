@@ -17,6 +17,8 @@ class SubModule(decman.Module):
         self.flatpak_packages = flatpak_packages or []
         self.submodules = submodules or []
 
+        decman.modules += [self]
+
     # Führt Pakete von Submodulen rekursiv zusammen
     def collect_packages(self):
         native = list(self.native_packages)

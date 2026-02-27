@@ -1,5 +1,6 @@
+import decman
 from .base import SubModule
-from modules_decman.hardware.lenkrad import Lenkrad
+from .configurations.desktop_background import BackgroundChanger
 
 
 class Desktop(SubModule):
@@ -68,3 +69,5 @@ class Desktop(SubModule):
                 "gnome-console",
             ]
         )
+
+        decman.modules += [BackgroundChanger()]

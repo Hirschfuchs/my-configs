@@ -1,0 +1,11 @@
+<wallpapers>
+    <wallpaper deleted="false">
+        <name>Dynamisch</name>
+        <filename>/usr/share/backgrounds/fox/background-bright.jpg</filename>
+        <filename-dark>/usr/share/backgrounds/fox/background-dark.jpg</filename-dark>
+        <options>zoom</options>
+        <shade_type>solid</shade_type>
+        <pcolor>#3c8434</pcolor>
+        <scolor>#142823</scolor>
+    </wallpaper>
+</wallpapers>

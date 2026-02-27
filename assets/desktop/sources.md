@@ -1,6 +1,6 @@
 Image Sources:
 
-| Bild                  | Quelle                    | Link                                                                 |
-|-----------------------|---------------------------|----------------------------------------------------------------------|
-| background-bright.jpg | Sabine from Pixabay       | https://pixabay.com/photos/nature-to-travel-landscape-3616194/       |
-| background-dark.jpg   | Florian Kurz from Pixabay | https://pixabay.com/photos/nature-forest-landscape-at-night-3194001/ |
+| Bild                  | Quelle                                  | Link                                                                                  |
+|-----------------------|-----------------------------------------|---------------------------------------------------------------------------------------|
+| background-bright.jpg | Boys in Bristol Photography from Pexels | https://www.pexels.com/de-de/foto/vogel-ast-tierwelt-rotkehlchen-16031324/            |
+| background-dark.jpg   | Eva Kristiansson from Pexels            | https://www.pexels.com/de-de/foto/rotkehlchen-sitzt-im-winter-auf-einem-ast-34529720/ |

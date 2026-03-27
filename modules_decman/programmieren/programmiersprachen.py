@@ -9,6 +9,7 @@ class Programmiersprachen(SubModule):
             native_packages=[
                 # JS/TS/Node
                 "npm",
+                "pnpm",
                 # PHP
                 "php",
                 # Java

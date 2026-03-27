@@ -13,8 +13,8 @@ class Spotify(SubModule):
                 # CLI-Steuerung für Spotify-Client
                 # "spotify-tui",
                 # Skins für Spotify
-                "spicetify-cli",
+                # "spicetify-cli",
                 # Marktplatz für Spicetify-Plugins
-                "spicetify-marketplace-bin",
+                # "spicetify-marketplace-bin",
             ]
         )

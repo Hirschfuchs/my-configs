@@ -1,7 +1,7 @@
 # Meine Konfigurationen
 Dieses Repo enthält die Konfigurationen für meine Geräte.
 
-Enthalten sollen verschiedene NixOS- bzw. Nix-Konfigurationsdateien für Linux,
+Enthalten sollen verschiedene Konfigurationsdateien für Linux, fokussiert auf [Decman](https://github.com/kiviktnm/decman) für Arch Linux,
 sowie Chocolatey-Listen für Windowssysteme.
 
 Weiterhin wird der Aufbau in Asciidoc dokumentiert und Entscheidungen begründet,

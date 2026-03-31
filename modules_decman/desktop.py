@@ -67,6 +67,10 @@ class Desktop(SubModule):
                 "gnome-system-monitor",
                 # Standard-Terminal
                 "gnome-console",
+            ],
+            aur_packages= [
+                # Automatischer Night-Mode
+                "gnome-shell-extension-nightthemeswitcher",
             ]
         )
 

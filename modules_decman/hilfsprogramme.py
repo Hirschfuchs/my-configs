@@ -6,8 +6,9 @@ class Hilfsprogramme(SubModule):
         super().__init__(
             "hilfsprogramme",
             native_packages=[
-                # Video- und Medienplayer (Open Source & sehr flexibel)
+                # Video- und Medienplayer (Open Source & sehr flexibel) mit Codecs
                 "vlc",
+                "vlc-plugin-ffmpeg",
                 # VIM für Notizen im Terminal
                 "vim",
                 # Bildverarbeitung

@@ -14,6 +14,7 @@ class Programmiersprachen(SubModule):
                 "php",
                 # Java
                 "jdk-openjdk",
+                "jdk21-openjdk",
                 "jdk8-openjdk",
                 "maven",
                 # Python

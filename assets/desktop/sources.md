@@ -1,6 +1,6 @@
 Image Sources:
 
-| Bild                  | Quelle                       | Link                                                                   |
-|-----------------------|------------------------------|------------------------------------------------------------------------|
-| background-bright.jpg | wal_172619 from Pixabay      | https://pixabay.com/photos/brandenburg-gate-berlin-landmark-7414312/   |
-| background-dark.jpg   | Michael Bußmann from Pixabay | https://pixabay.com/photos/berlin-brandenburg-gate-night-shot-4692820/ |
+| Bild                  | Thema            | Quelle                               | Link                                                               |
+|-----------------------|------------------|--------------------------------------|--------------------------------------------------------------------|
+| background-bright.jpg | Kirschblüte Bonn | Image by Rena Limberger from Pixabay | https://pixabay.com/photos/cherry-wood-tree-branch-flower-3334503/ |
+| background-dark.jpg   | Bonn am Abend    | Image by Thomas from Pixabay         | https://pixabay.com/photos/bonn-bonn-tower-long-eugen-983319/      |

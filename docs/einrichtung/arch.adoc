@@ -32,3 +32,28 @@ zu finden.
 === Auswahl eines Hosts
 Für das System muss eine entsprechende `hostname.py` Datei im `hosts` Verzeichnis enthalten sein.
 Diese beinhaltet alle notwendigen Verweise auf die benötigten Module.
+
+Der Zugriff kann nun über eine kurze Einstiegs-Konfigurationsdatei erfolgen.
+Im Fall meines Hauptrechners sieht das so aus:
+
+[source,python]
+.~/.config/decman/local_config.py
+----
+import decman
+from hosts.techtornado_arch import TechtornadoArch
+
+decman.modules += [TechtornadoArch()]
+----
+
+Über ein Bash-Alias führe ich nun folgende Schritte automatisiert aus:
+
+. Repository nach `~/.config/my-configs` klonen
+. Lokale Konfiguration in `~/.config/my-configs` kopieren
+. Ausführung von Decman mit Adminrechten
+
+[source,bash]
+----
+alias update-desktop='[ -d "$HOME/.config/my-configs" ] && (cd "$HOME/.config/my-configs" && git pull) || git clone https://github.com/Hirschfuchs/my-configs.git "$HOME/.config/my-configs" && cp "$HOME/.config/decman/local_config.py" "$HOME/.config/my-configs/config.py" && sudo decman --source "$HOME/.config/my-configs/config.py"'
+----
+
+Auf diese Weise wird stets der aktuellste Main-Stand installiert.

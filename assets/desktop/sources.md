@@ -1,6 +1,6 @@
 Image Sources:
 
-| Bild                  | Thema            | Quelle                               | Link                                                               |
-|-----------------------|------------------|--------------------------------------|--------------------------------------------------------------------|
-| background-bright.jpg | Kirschblüte Bonn | Image by Rena Limberger from Pixabay | https://pixabay.com/photos/cherry-wood-tree-branch-flower-3334503/ |
-| background-dark.jpg   | Bonn am Abend    | Image by Thomas from Pixabay         | https://pixabay.com/photos/bonn-bonn-tower-long-eugen-983319/      |
+| Bild                  | Thema                | Quelle                                 | Link                                                               |
+|-----------------------|----------------------|----------------------------------------|--------------------------------------------------------------------|
+| background-bright.jpg | Ostseebad Binz       | Image by Erich Westendarp from Pixabay | https://pixabay.com/photos/to-reprimand-binz-kurhaus-1330978/      |
+| background-dark.jpg   | Ostseebad Binz Abend | Image by Bernd Schmidt from Pixabay    | https://pixabay.com/photos/sunset-sun-landscape-afterglow-4981969/ |

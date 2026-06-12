@@ -17,6 +17,8 @@ class Entwicklung(SubModule):
                 "eyedropper",
                 # Automatisierte Codedokumentation
                 "doxygen",
+                # Imaging Tool für Raspberry Pis (benötigt zum Flashen der CCU)
+                "rpi-imager"
             ],
             aur_packages=[
                 # Jetbrains Tools (IntelliJ, Webstorm & co.)

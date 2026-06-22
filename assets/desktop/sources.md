@@ -1,6 +1,6 @@
 Image Sources:
 
-| Bild                  | Thema           | Quelle                                      | Link                                                               |
-|-----------------------|-----------------|---------------------------------------------|--------------------------------------------------------------------|
-| background-bright.jpg | Rasender Roland | Image by Joachim Scheibenpflug from Pixabay | https://pixabay.com/photos/railroad-rasender-roland-train-7355204/ |
-| background-dark.jpg   | Schienen        | Image by Dirk from Pixabay                  | https://pixabay.com/photos/rail-railroad-to-reprimand-6253132/     |
+| Bild                  | Thema                 | Quelle                                  | Link                                                                         |
+|-----------------------|-----------------------|-----------------------------------------|------------------------------------------------------------------------------|
+| background-bright.jpg | Hafen Kühlungsborn    | Image by www.presse.online from Pixabay | https://pixabay.com/photos/k%C3%BChlungsborn-travel-coast-vacations-5802426/ |
+| background-dark.jpg   | Kühlungsborn am Abend | Image by Dirk Ossenbrück from Pixabay   | https://pixabay.com/photos/ostsee-ostseebad-kuehlungsborn-5484082/           |

@@ -1,6 +1,6 @@
 Image Sources:
 
-| Bild                  | Thema                 | Quelle                                  | Link                                                                         |
-|-----------------------|-----------------------|-----------------------------------------|------------------------------------------------------------------------------|
-| background-bright.jpg | Hafen Kühlungsborn    | Image by www.presse.online from Pixabay | https://pixabay.com/photos/k%C3%BChlungsborn-travel-coast-vacations-5802426/ |
-| background-dark.jpg   | Kühlungsborn am Abend | Image by Dirk Ossenbrück from Pixabay   | https://pixabay.com/photos/ostsee-ostseebad-kuehlungsborn-5484082/           |
+| Bild                  | Thema                | Quelle                               | Link                                                                       |
+|-----------------------|----------------------|--------------------------------------|----------------------------------------------------------------------------|
+| background-bright.jpg | Stralsund            | Image by wal_172619 from Pixabay     | https://pixabay.com/photos/city-stralsund-architecture-7941116/            |
+| background-dark.jpg   | Rügenbrücke am Abend | Image by Kerstin Riemer from Pixabay | https://pixabay.com/photos/stralsund-r%C3%BCgen-bridge-strelasund-5425249/ |

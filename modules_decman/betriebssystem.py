@@ -24,5 +24,7 @@ class Betriebssystem(SubModule):
             aur_packages=[
                 # Decman muss sich selbst kennen
                 "decman",
+                # YAY als Fallback zur Re-Installation von Decman
+                "yay",
             ]
         )

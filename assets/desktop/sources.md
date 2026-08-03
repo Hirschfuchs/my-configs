@@ -1,6 +1,6 @@
 Image Sources:
 
-| Bild                  | Thema                 | Quelle                       | Link                                                                  |
-|-----------------------|-----------------------|------------------------------|-----------------------------------------------------------------------|
-| background-bright.jpg | Strandkorb Tag        | Image by TomCam from Pixabay | https://pixabay.com/photos/beach-chair-sylt-north-sea-sea-4524921/    |
-| background-dark.jpg   | Strandkorb Abend | Image by Sven from Pixabay   | https://pixabay.com/photos/beach-chair-sunset-north-sea-beach-187700/ |
+| Bild                  | Thema        | Quelle                              | Link                                                                         |
+|-----------------------|--------------|-------------------------------------|------------------------------------------------------------------------------|
+| background-bright.jpg | Lübeck Tag   | Image by mareneinfeldt from Pixabay | https://pixabay.com/photos/l%C3%BCbeck-marzipan-city-world-heritage-1023519/ |
+| background-dark.jpg   | Lübeck Abend | Image from Pixabay                  | https://pixabay.com/photos/l%C3%BCbeck-cathedral-church-l%C3%BCbeck-4291231/ |

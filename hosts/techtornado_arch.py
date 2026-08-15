@@ -1,4 +1,5 @@
 from modules_decman.configurations.base import SystemConfiguration
+from modules_decman.kuenstliche_intelligenz import KuenstlicheIntelligenz
 from .base import HostBase
 from modules_decman.a11y import A11y
 from modules_decman.bildbearbeitung import Bildbearbeitung
@@ -38,7 +39,7 @@ class TechtornadoArch(HostBase):
                 Standardprogramme(),
                 Textverarbeitung(),
                 MedienVerarbeitung(),
-                Entwicklung(),
+                Entwicklung(self.username),
                 KommunikationPrivat(),
                 KommunikationWeitere(),
                 HardwareCoburg(),
@@ -51,7 +52,6 @@ class TechtornadoArch(HostBase):
                 Spotify(),
                 Musizieren(),
                 Bildschirmaufnahme(),
-                A11y(),
                 KuenstlicheIntelligenz(),
                 Fun(),
                 Legacy(),

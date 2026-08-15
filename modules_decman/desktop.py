@@ -1,10 +1,11 @@
 import decman
 from .base import SubModule
 from .configurations.desktop_background import BackgroundChanger
+from .configurations.gnome.keyboard_config import KeyboardConfig
 
 
 class Desktop(SubModule):
-    def __init__(self):
+    def __init__(self, username):
         super().__init__(
             "desktop (gnome)",
             native_packages=[
@@ -71,6 +72,9 @@ class Desktop(SubModule):
             aur_packages= [
                 # Automatischer Night-Mode
                 "gnome-shell-extension-nightthemeswitcher",
+            ],
+            configurations=[
+                KeyboardConfig(username)
             ]
         )
 

@@ -1,4 +1,5 @@
 from ..base import SubModule
+from ..configurations.base import SystemConfiguration
 
 
 class ArchMinimum(SubModule):
@@ -16,5 +17,11 @@ class ArchMinimum(SubModule):
                 "base-devel",
                 # Netzwerkverbindung ermöglichen
                 "networkmanager",
+            ],
+            configurations=[
+                SystemConfiguration(
+                    name="Netzwerkkonfiguration",
+                    systemd_units=["NetworkManager.service"]
+                )
             ]
         )

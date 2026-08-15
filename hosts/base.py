@@ -122,8 +122,6 @@ class HostBase(decman.Module):
             "systemd"
         ]
 
-        decman.systemd.enabled_units |= {"reflector.service"}
-
         um = UserManager()
         um.add_user(User(
             username="builduser",

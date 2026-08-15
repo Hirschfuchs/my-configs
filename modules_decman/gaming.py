@@ -29,6 +29,8 @@ class Gaming(SubModule):
                 "minecraft-launcher",
                 # Technic Launcher (optional)
                 "minecraft-technic-launcher",
+                # Echtwelt-Map-Generator für beliebige Orte
+                "arnis-bin",
                 #
                 # Starten von Java-Webanwendungen (StellwerkSim)
                 "openwebstart-bin",

@@ -33,7 +33,7 @@ class TechtornadoArch(HostBase):
             "techtornado-arch",
             submodules=[
                 Betriebssystem(),
-                Desktop(),
+                Desktop(self.username),
                 Hilfsprogramme(),
                 Standardprogramme(),
                 Textverarbeitung(),

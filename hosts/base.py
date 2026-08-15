@@ -68,15 +68,6 @@ class HostBase(decman.Module):
         decman.aur.packages |= set(foreign)
         decman.flatpak.packages |= set(flatpak)
 
-        # Anzeige aller angewendeten Konfigurationen
-        konfigurations_namen = sorted(set(angewendete_konfigurationen))
-
-        if konfigurations_namen:
-            formatted_names = "\\n - ".join(konfigurations_namen)
-            print_cmd = f"echo -e '\\n========================================\\n[Decman] Folgende Konfigurationen werden angewendet:\\n - {formatted_names}\\n========================================\\n'"
-
-            decman.sh(print_cmd)
-
         # Aktivieren der in den Konfigurationen definierten SystemD-Units
         if getattr(decman.systemd, "enabled_units", None) is None:
             decman.systemd.enabled_units = systemd_units
@@ -111,20 +102,10 @@ class HostBase(decman.Module):
                 )
             )
 
-        # Anwenden der konfigurierten GSettings
-        for user, schema, key, value in gsettings:
-            # 1. Ermitteln der UID des Ziel-Users für den DBUS-Socket (Standard bei Systemd: /run/user/<UID>)
-            # 2. Ausführen als Ziel-User mit direkter Anbindung an seinen DBUS-Socket
-            cmd = (
-                f"sudo -u {user} "
-                f"DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u {user})/bus "
-                f"gsettings set {schema} {key} \"{value}\""
-            )
-            commands.append(cmd)
-
-        # Anwenden der konfigurierten Kommandos
-        for command in sorted(set(commands)):
-            decman.sh(command)
+        # Speichern der Kommandos für nach den Installationen
+        self.angewendete_konfigurationen = sorted(set(angewendete_konfigurationen))
+        self.gsettings = gsettings
+        self.commands = commands
 
         decman.execution_order = [
             "files",
@@ -145,3 +126,30 @@ class HostBase(decman.Module):
         decman.aur.makepkg_user = "builduser"
 
         decman.modules += [um]
+
+    def after_update (self, store):
+        # Anzeige aller angewendeten Konfigurationen
+        konfigurations_namen = self.angewendete_konfigurationen
+
+        if konfigurations_namen:
+            formatted_names = "\\n - ".join(konfigurations_namen)
+            print_cmd = f"echo -e '\\n========================================\\n[Decman] Folgende Konfigurationen werden angewendet:\\n - {formatted_names}\\n========================================\\n'"
+
+            decman.sh(print_cmd)
+
+        commands = self.commands
+
+        # Anwenden der konfigurierten GSettings
+        for user, schema, key, value in self.gsettings:
+            # 1. Ermitteln der UID des Ziel-Users für den DBUS-Socket (Standard bei Systemd: /run/user/<UID>)
+            # 2. Ausführen als Ziel-User mit direkter Anbindung an seinen DBUS-Socket
+            cmd = (
+                f"sudo -u {user} "
+                f"DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u {user})/bus "
+                f"gsettings set {schema} {key} \"{value}\""
+            )
+            commands.append(cmd)
+
+        # Anwenden der konfigurierten Kommandos
+        for command in sorted(set(commands)):
+            decman.sh(command)

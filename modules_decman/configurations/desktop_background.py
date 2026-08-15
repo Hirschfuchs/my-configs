@@ -8,17 +8,21 @@ BACKGROUND_PROPERTIES_PATH = Path("/usr/share/gnome-background-properties")
 BACKGROUNDS_PATH = Path("/usr/share/backgrounds/fox")
 
 VERSION_FILE_NAME = "dynamic-background.version"
+ACCENT_COLOR_FILE_NAME = "accent-color.txt"
 PROPERTIES_FILE_NAME = "dynamic.xml"
 
 LOCAL_VERSION_FILE = REPO_PATH / VERSION_FILE_NAME
 CURRENT_VERSION_FILE = BACKGROUND_PROPERTIES_PATH / VERSION_FILE_NAME
 
+LOCAL_ACCENT_COLOR_FILE = REPO_PATH / ACCENT_COLOR_FILE_NAME
+
 LOCAL_PROPERTIES_FILE = REPO_PATH / PROPERTIES_FILE_NAME
 CURRENT_PROPERTIES_FILE = BACKGROUND_PROPERTIES_PATH / PROPERTIES_FILE_NAME
 
 class BackgroundChanger(decman.Module):
-    def __init__(self) -> None:
+    def __init__(self, username) -> None:
         super().__init__("background-changer")
+        self.username = username
 
     def after_update (self, store):
         print("Prüfen des Desktophintergrunds auf Aktualität")
@@ -66,6 +70,18 @@ class BackgroundChanger(decman.Module):
                 print(f"Warnung: Die Konfigurationsdatei {LOCAL_PROPERTIES_FILE} wurde nicht gefunden.")
 
             shutil.copy2(str(LOCAL_VERSION_FILE), str(CURRENT_VERSION_FILE))
+
+            # Akzentfarbe setzen
+            # Erlaubte Werte sind »blue«, »teal«, »green«, »yellow«, »orange«, »red«, »pink«, »purple« und »slate«.
+            if LOCAL_ACCENT_COLOR_FILE.exists():
+                accent_color = LOCAL_ACCENT_COLOR_FILE.read_text().strip() or "green"
+            else:
+                accent_color = "green"
+            decman.sh((
+                f"sudo -u {self.username} "
+                f"DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u {self.username})/bus "
+                f"gsettings set org.gnome.desktop.interface accent-color \"{accent_color}\""
+            ))
 
         except PermissionError:
             print("Fehler: Das Skript hat nicht die notwendigen Schreibrechte zum aktualisieren der Hintergründe!")

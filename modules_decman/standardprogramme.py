@@ -22,8 +22,8 @@ class Standardprogramme(SubModule):
             aur_packages=[
                 # Browser
                 "google-chrome",
-                # Bildbetrachter (ersetzt Gwenview)
-                "qimgv-git",
+                # Bildbetrachter
+                "nomacs",
                 # PDF-Bearbeitung
                 "pdf4qt",
             ],

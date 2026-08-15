@@ -80,4 +80,4 @@ class Desktop(SubModule):
             ]
         )
 
-        decman.modules += [BackgroundChanger()]
+        decman.modules += [BackgroundChanger(username)]

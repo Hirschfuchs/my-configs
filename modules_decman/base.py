@@ -3,12 +3,13 @@ import decman
 
 class SubModule(decman.Module):
     def __init__(
-        self,
-        name,
-        native_packages=None,
-        aur_packages=None,
-        flatpak_packages=None,
-        submodules=None,
+            self,
+            name,
+            native_packages=None,
+            aur_packages=None,
+            flatpak_packages=None,
+            submodules=None,
+            configurations=None,
     ):
         super().__init__(name)
 
@@ -16,6 +17,7 @@ class SubModule(decman.Module):
         self.aur_packages = aur_packages or []
         self.flatpak_packages = flatpak_packages or []
         self.submodules = submodules or []
+        self.configurations = configurations or []
 
         decman.modules += [self]
 
@@ -24,11 +26,13 @@ class SubModule(decman.Module):
         native = list(self.native_packages)
         foreign = list(self.aur_packages)
         flatpak = list(self.flatpak_packages)
+        configurations = list(self.configurations)
 
         for module in self.submodules:
-            sub_native, sub_foreign, sub_flatpak = module.collect_packages()
+            sub_native, sub_foreign, sub_flatpak, sub_configurations = module.collect_packages()
             native.extend(sub_native)
             foreign.extend(sub_foreign)
             flatpak.extend(sub_flatpak)
+            configurations.extend(sub_configurations)
 
-        return native, foreign, flatpak
+        return native, foreign, flatpak, configurations

@@ -1,3 +1,4 @@
+from .a11y import A11y
 from .base import SubModule
 from modules_decman.programmieren.datenbanken import Datenbanken
 from modules_decman.programmieren.programmiersprachen import Programmiersprachen
@@ -5,7 +6,7 @@ from modules_decman.programmieren.sonstiges import EntwicklungSonstiges
 
 
 class Entwicklung(SubModule):
-    def __init__(self):
+    def __init__(self, username):
         super().__init__(
             "entwicklung",
             native_packages=[
@@ -32,5 +33,6 @@ class Entwicklung(SubModule):
                 Programmiersprachen(),
                 Datenbanken(),
                 EntwicklungSonstiges(),
-            ]
+                A11y(username),
+            ],
         )

@@ -12,6 +12,8 @@ class Gaming(SubModule):
                 # multilib muss unter /etc/pacman.conf aktiviert werden
                 # TODO: automatisieren
                 "steam",
+                # Winetricks-Adaption für Steam-/Proton-Apps
+                "protontricks",
             ],
             aur_packages=[
                 # Cutechess Schach
@@ -30,6 +32,10 @@ class Gaming(SubModule):
                 #
                 # Starten von Java-Webanwendungen (StellwerkSim)
                 "openwebstart-bin",
+            ],
+            flatpak_packages=[
+                # Vollwertige gekapselte Windows-Umgebung
+                "com.usebottles.bottles"
             ],
             submodules=[
                 Lenkrad(),

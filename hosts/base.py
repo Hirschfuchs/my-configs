@@ -22,6 +22,7 @@ class HostBase(decman.Module):
         modulkonfigurationen = []
 
         # Konfigurationen
+        angewendete_konfigurationen = []
         systemd_units = []
         commands = []
         gsettings = []
@@ -37,7 +38,8 @@ class HostBase(decman.Module):
 
         # Direkt übergebene Konfigurationen
         for konfiguration in subkonfigurationen:
-            sub_systemd_units, sub_commands, sub_gsettings, sub_config_files, sub_config_dirs = konfiguration.collect_configs()
+            config_namen, sub_systemd_units, sub_commands, sub_gsettings, sub_config_files, sub_config_dirs = konfiguration.collect_configs()
+            angewendete_konfigurationen.extend(config_namen)
             systemd_units.extend(sub_systemd_units)
             commands.extend(sub_commands)
             gsettings.extend(sub_gsettings)
@@ -46,7 +48,8 @@ class HostBase(decman.Module):
 
         # Über Module definierte Konfigurationen
         for konfiguration in modulkonfigurationen:
-            sub_systemd_units, sub_commands, sub_gsettings, sub_config_files, sub_config_dirs = konfiguration.collect_configs()
+            config_namen, sub_systemd_units, sub_commands, sub_gsettings, sub_config_files, sub_config_dirs = konfiguration.collect_configs()
+            angewendete_konfigurationen.extend(config_namen)
             systemd_units.extend(sub_systemd_units)
             commands.extend(sub_commands)
             gsettings.extend(sub_gsettings)
@@ -64,6 +67,15 @@ class HostBase(decman.Module):
         decman.pacman.packages |= set(native)
         decman.aur.packages |= set(foreign)
         decman.flatpak.packages |= set(flatpak)
+
+        # Anzeige aller angewendeten Konfigurationen
+        konfigurations_namen = sorted(set(angewendete_konfigurationen))
+
+        if konfigurations_namen:
+            formatted_names = "\\n - ".join(konfigurations_namen)
+            print_cmd = f"echo -e '\\n========================================\\n[Decman] Folgende Konfigurationen werden angewendet:\\n - {formatted_names}\\n========================================\\n'"
+
+            decman.sh(print_cmd)
 
         # Aktivieren der in den Konfigurationen definierten SystemD-Units
         if getattr(decman.systemd, "enabled_units", None) is None:

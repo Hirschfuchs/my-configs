@@ -1,3 +1,4 @@
+from modules_decman.configurations.base import SystemConfiguration
 from .base import HostBase
 from modules_decman.a11y import A11y
 from modules_decman.bildbearbeitung import Bildbearbeitung
@@ -26,6 +27,8 @@ from modules_decman.virtualisierung import Virtualisierung
 
 class TechtornadoArch(HostBase):
     def __init__(self):
+        self.username = "bono"
+
         super().__init__(
             "techtornado-arch",
             submodules=[
@@ -53,4 +56,17 @@ class TechtornadoArch(HostBase):
                 Fun(),
                 Legacy(),
             ],
+            subkonfigurationen=[
+                SystemConfiguration(
+                    name="Techtornado Favoriten-Programme",
+                    gsettings=[
+                        (
+                            self.username,
+                            "org.gnome.shell",
+                            "favorite-apps",
+                            "['firefox.desktop', 'google-chrome.desktop', 'xairedit.desktop', 'keepass.desktop', 'spotify-launcher.desktop', 'org.gnome.Evolution.desktop', 'kitty.desktop', 'discord.desktop']"
+                        )
+                    ]
+                )
+            ]
         )

@@ -16,6 +16,7 @@ class SystemConfiguration(decman.Module):
     ):
         super().__init__(name)
 
+        self.name = name
         self.systemd_units = systemd_units or []
         self.commands = commands or []
         self.gsettings = gsettings or []
@@ -27,6 +28,7 @@ class SystemConfiguration(decman.Module):
 
     # Führt Konfigurationselemente von Subkonfigurationen rekursiv zusammen
     def collect_configs(self):
+        config_namen = [self.name]
         systemd_units = list(self.systemd_units)
         commands = list(self.commands)
         gsettings = list(self.gsettings)
@@ -34,11 +36,12 @@ class SystemConfiguration(decman.Module):
         config_dirs = list(self.config_dirs)
 
         for konfiguration in self.subconfigs:
-            sub_systemd_units, sub_commands, sub_gsettings, sub_config_files, sub_config_dirs = konfiguration.collect_configs()
+            sub_config_namen, sub_systemd_units, sub_commands, sub_gsettings, sub_config_files, sub_config_dirs = konfiguration.collect_configs()
+            config_namen.extend(sub_config_namen)
             systemd_units.extend(sub_systemd_units)
             commands.extend(sub_commands)
             gsettings.extend(sub_gsettings)
             config_files.extend(sub_config_files)
             config_dirs.extend(sub_config_dirs)
 
-        return systemd_units, commands, gsettings, config_files, config_dirs
+        return config_namen, systemd_units, commands, gsettings, config_files, config_dirs

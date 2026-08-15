@@ -1,4 +1,5 @@
 from ..base import SubModule
+from ..configurations.base import SystemConfiguration
 
 
 class Keys(SubModule):
@@ -10,5 +11,11 @@ class Keys(SubModule):
                 "reflector",
                 # Auffrischen des Keyrings
                 "archlinux-keyring",
+            ],
+            configurations=[
+                SystemConfiguration(
+                    name="Reflektoraktivierung",
+                    systemd_units=["reflector.service"]
+                )
             ]
         )

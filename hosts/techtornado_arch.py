@@ -49,6 +49,7 @@ class TechtornadoArch(HostBase):
                 Musizieren(),
                 Bildschirmaufnahme(),
                 A11y(),
+                KuenstlicheIntelligenz(),
                 Fun(),
                 Legacy(),
             ],

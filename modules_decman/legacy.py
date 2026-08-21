@@ -11,8 +11,6 @@ class Legacy(SubModule):
             native_packages=[
                 # Obsidian Notizen (könnte durch Typst ersetzt werden (wie auch TeX))
                 "obsidian",
-                # Festlegung von Tastenkombinationen zur Ausführung von Befehlen (i.V.m. xdotool)
-                "xbindkeys",
             ],
             aur_packages=[
                 # Snap-Paketmanager (benötigt für TK-Safe)

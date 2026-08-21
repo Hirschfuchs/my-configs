@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 import decman
 import os
 import decman.config
@@ -7,8 +9,10 @@ from modules_decman.configurations.aur_fix import AurFix
 
 
 class HostBase(decman.Module):
-    def __init__(self, name, submodules, subkonfigurationen=None):
+    def __init__(self, name, username, submodules, subkonfigurationen=None):
         super().__init__(name)
+
+        self.username = username
 
         decman.modules += [AurFix()]
 
@@ -21,6 +25,9 @@ class HostBase(decman.Module):
         flatpak = []
         modulkonfigurationen = []
 
+        # Desktop-Verknüpfungen
+        self.desktop_links = []
+
         # Konfigurationen
         angewendete_konfigurationen = []
         systemd_units = []
@@ -30,10 +37,11 @@ class HostBase(decman.Module):
         config_dirs = []
 
         for module in submodules:
-            sub_native, sub_foreign, sub_flatpak, sub_configurations = module.collect_packages()
+            sub_native, sub_foreign, sub_flatpak, sub_desktop_links, sub_configurations = module.collect_packages()
             native.extend(sub_native)
             foreign.extend(sub_foreign)
             flatpak.extend(sub_flatpak)
+            self.desktop_links.extend(sub_desktop_links)
             modulkonfigurationen.extend(sub_configurations)
 
         # Direkt übergebene Konfigurationen
@@ -107,6 +115,9 @@ class HostBase(decman.Module):
         self.gsettings = gsettings
         self.commands = commands
 
+        # Konfiguration der Desktop-Verknüpfungen
+        self._generate_desktop_links()
+
         decman.execution_order = [
             "files",
             "pacman",
@@ -153,3 +164,51 @@ class HostBase(decman.Module):
         # Anwenden der konfigurierten Kommandos
         for command in sorted(set(commands)):
             decman.sh(command)
+
+    def _generate_desktop_links (self):
+        if self.desktop_links:
+            # Die konfigurierten Verknüpfungen werden nach Seiten gruppiert und nach Priorität sortiert
+            pages = defaultdict(dict)
+            for app_id, page, priority in self.desktop_links:
+                if app_id not in pages[page] or priority > pages[page][app_id]:
+                    pages[page][app_id] = priority
+
+            page_strings = []
+
+            for page_num in sorted(pages.keys()):
+                # Sortieren nach Prio
+                apps_on_page = sorted(pages[page_num].items(), key=lambda x: x[1], reverse=True)
+
+                page_entries = []
+
+                # Die Apps innerhalb einer Seite werden sequenziell durchgezählt
+                for pos, (app_id, _) in enumerate(apps_on_page):
+                    entry_str = f"'{app_id}': <{{'position': <int32 {pos}>}}>"
+                    page_entries.append(entry_str)
+
+                page_dict_str = f"{{{', '.join(page_entries)}}}"
+                page_strings.append(page_dict_str)
+
+            layout_value = f"[{', '.join(page_strings)}]"
+
+            self.gsettings.append((
+                self.username,
+                "org.gnome.shell",
+                "app-picker-layout",
+                layout_value
+            ))
+
+            # Ausgabe des Ergebnisses
+            anzahl_verknuepfungen = len(self.desktop_links)
+            anzahl_seiten = len(pages)
+
+            print_cmd = (
+                f"echo -e '\\n========================================\\n"
+                f"[Decman] Desktop-Verknüpfungen eingerichtet: {anzahl_verknuepfungen} Verknüpfung(en) "
+                f"auf {anzahl_seiten} Seite(n) verteilt.\\n"
+                f"========================================\\n'"
+            )
+            self.commands.append(print_cmd)
+        else:
+            print_cmd = "echo -e '\\n========================================\\n[Decman] Es wurden keine konfigurierten Desktopverknüpfungen gefunden.\\n========================================\\n'"
+            self.commands.append(print_cmd)

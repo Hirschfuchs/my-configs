@@ -16,5 +16,12 @@ class Spotify(SubModule):
                 # "spicetify-cli",
                 # Marktplatz für Spicetify-Plugins
                 # "spicetify-marketplace-bin",
-            ]
+            ],
+            desktop_links=[
+                (
+                    "spotify-launcher.desktop",
+                    0,
+                    1120
+                ),
+            ],
         )

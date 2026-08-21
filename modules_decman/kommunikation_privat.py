@@ -8,5 +8,12 @@ class KommunikationPrivat(SubModule):
             native_packages=[
                 # Discord
                 "discord",
-            ]
+            ],
+            desktop_links=[
+                (
+                    "discord.desktop",
+                    0,
+                    1135
+                ),
+            ],
         )

@@ -8,5 +8,12 @@ class Musizieren(SubModule):
             aur_packages=[
                 # Synthesia-Alternative zum Keyboard-Üben
                 "neothesia",
-            ]
+            ],
+            desktop_links=[
+                (
+                    "com.github.polymeilex.neothesia.desktop",
+                    1,
+                    40
+                )
+            ],
         )

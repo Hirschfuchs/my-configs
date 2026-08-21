@@ -15,5 +15,17 @@ class Legacy(SubModule):
             aur_packages=[
                 # Snap-Paketmanager (benötigt für TK-Safe)
                 "snapd",
-            ]
+            ],
+            folder_links=[
+                (
+                    "hilfsprogramme",
+                    "Hilfsprogramme",
+                    [
+                        (
+                            "obsidian.desktop",
+                            7
+                        ),
+                    ]
+                ),
+            ],
         )

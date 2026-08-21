@@ -40,5 +40,38 @@ class Gaming(SubModule):
             submodules=[
                 Lenkrad(),
                 Controller(),
+            ],
+            desktop_links=[
+                (
+                    "steam.desktop",
+                    0,
+                    1000
+                ),
+                (
+                    "multimc.desktop",
+                    0,
+                    900
+                ),
+                (
+                    "minecrafttools",
+                    1,
+                    120
+                ),
+            ],
+            folder_links=[
+                (
+                    "minecrafttools",
+                    "Minecraft-Tools",
+                    [
+                        (
+                            "technic-launcher.desktop",
+                            10
+                        ),
+                        (
+                            "arnis.desktop",
+                            9
+                        ),
+                    ]
+                )
             ]
         )

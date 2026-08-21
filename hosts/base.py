@@ -192,6 +192,8 @@ class HostBase(decman.Module):
                 page_dict_str = f"{{{', '.join(page_entries)}}}"
                 page_strings.append(page_dict_str)
 
+            page_strings.append("{}")
+
             layout_value = f"[{', '.join(page_strings)}]"
 
             self.gsettings.append((

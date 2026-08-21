@@ -2,6 +2,7 @@ import decman
 from .base import SubModule
 from .configurations.desktop_background import BackgroundChanger
 from .configurations.gnome.keyboard_config import KeyboardConfig
+from .configurations.gnome.leiste_config import LeisteConfig
 from .configurations.gnome.multitasking_config import MultitaskingConfig
 
 
@@ -75,6 +76,7 @@ class Desktop(SubModule):
                 "gnome-shell-extension-nightthemeswitcher",
             ],
             configurations=[
+                LeisteConfig(username),
                 KeyboardConfig(username),
                 MultitaskingConfig(username)
             ]

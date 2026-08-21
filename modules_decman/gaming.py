@@ -25,9 +25,7 @@ class Gaming(SubModule):
                 # KATEGORIE Minecraft
                 # Management & Starter für Modded & Vanilla Minecraft
                 "multimc-bin",
-                # Standard-Launcher (optional)
-                "minecraft-launcher",
-                # Technic Launcher (optional)
+                # Technic Launcher
                 "minecraft-technic-launcher",
                 # Echtwelt-Map-Generator für beliebige Orte
                 "arnis-bin",

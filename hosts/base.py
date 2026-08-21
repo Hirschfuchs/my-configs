@@ -172,36 +172,68 @@ class HostBase(decman.Module):
         if self.desktop_links:
             # Die konfigurierten Verknüpfungen werden nach Seiten gruppiert und nach Priorität sortiert
             pages = defaultdict(dict)
-            for app_id, page, priority in self.desktop_links:
-                if app_id not in pages[page] or priority > pages[page][app_id]:
-                    pages[page][app_id] = priority
+            favorites_list = []
 
-            page_strings = []
+            for entry in self.desktop_links:
+                if len(entry) == 4:
+                    app_id, page, priority, is_favorite = entry
+                else:
+                    app_id, page, priority = entry
+                    is_favorite = False
 
-            for page_num in sorted(pages.keys()):
+                if is_favorite:
+                    favorites_list.append((app_id, priority))
+                else:
+                    if page is not None:
+                        if app_id not in pages[page] or priority > pages[page][app_id]:
+                            pages[page][app_id] = priority
+
+            if favorites_list:
+                # Duplikate bei Favoriten entfernen
+                unique_favs = {}
+                for item_id, prio in favorites_list:
+                    if item_id not in unique_favs or prio > unique_favs[item_id]:
+                        unique_favs[item_id] = prio
+
                 # Sortieren nach Prio
-                apps_on_page = sorted(pages[page_num].items(), key=lambda x: x[1], reverse=True)
+                sorted_favs = sorted(unique_favs.items(), key=lambda x: x[1], reverse=True)
+                fav_app_ids = [f"'{item_id}'" for item_id, _ in sorted_favs]
+                fav_array_str = f"[{', '.join(fav_app_ids)}]"
 
-                page_entries = []
+                self.gsettings.append((
+                    self.username,
+                    "org.gnome.shell",
+                    "favorite-apps",
+                    fav_array_str
+                ))
 
-                # Die Apps innerhalb einer Seite werden sequenziell durchgezählt
-                for pos, (app_id, _) in enumerate(apps_on_page):
-                    entry_str = f"'{app_id}': <{{'position': <int32 {pos}>}}>"
-                    page_entries.append(entry_str)
+            if pages:
+                page_strings = []
 
-                page_dict_str = f"{{{', '.join(page_entries)}}}"
-                page_strings.append(page_dict_str)
+                for page_num in sorted(pages.keys()):
+                    # Sortieren nach Prio
+                    apps_on_page = sorted(pages[page_num].items(), key=lambda x: x[1], reverse=True)
 
-            page_strings.append("{}")
+                    page_entries = []
 
-            layout_value = f"[{', '.join(page_strings)}]"
+                    # Die Apps innerhalb einer Seite werden sequenziell durchgezählt
+                    for pos, (app_id, _) in enumerate(apps_on_page):
+                        entry_str = f"'{app_id}': <{{'position': <int32 {pos}>}}>"
+                        page_entries.append(entry_str)
 
-            self.gsettings.append((
-                self.username,
-                "org.gnome.shell",
-                "app-picker-layout",
-                layout_value
-            ))
+                    page_dict_str = f"{{{', '.join(page_entries)}}}"
+                    page_strings.append(page_dict_str)
+
+                page_strings.append("{}")
+
+                layout_value = f"[{', '.join(page_strings)}]"
+
+                self.gsettings.append((
+                    self.username,
+                    "org.gnome.shell",
+                    "app-picker-layout",
+                    layout_value
+                ))
 
             # Ausgabe des Ergebnisses
             anzahl_verknuepfungen = len(self.desktop_links)

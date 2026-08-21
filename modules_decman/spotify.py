@@ -21,7 +21,8 @@ class Spotify(SubModule):
                 (
                     "spotify-launcher.desktop",
                     0,
-                    1120
+                    1120,
+                    True
                 ),
             ],
         )

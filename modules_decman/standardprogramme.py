@@ -39,17 +39,20 @@ class Standardprogramme(SubModule):
                 (
                     "firefox.desktop",
                     0,
-                    1190
+                    1190,
+                    True
                 ),
                 (
                     "google-chrome.desktop",
                     0,
-                    1189
+                    1189,
+                    True
                 ),
                 (
                     "keepass.desktop",
                     0,
-                    1180
+                    1180,
+                    True
                 ),
                 (
                     "io.github.Qalculate.qalculate-qt.desktop",

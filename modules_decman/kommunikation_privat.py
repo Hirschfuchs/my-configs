@@ -13,7 +13,8 @@ class KommunikationPrivat(SubModule):
                 (
                     "discord.desktop",
                     0,
-                    1135
+                    1135,
+                    True
                 ),
             ],
         )

@@ -90,6 +90,7 @@ class Desktop(SubModule):
                     "org.gnome.Evolution.desktop",
                     0,
                     1100,
+                    True,
                 ),
             ]
         )

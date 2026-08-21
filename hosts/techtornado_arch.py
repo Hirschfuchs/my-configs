@@ -60,14 +60,14 @@ class TechtornadoArch(HostBase):
             subkonfigurationen=[
                 SystemConfiguration(
                     name="Techtornado Favoriten-Programme",
-                    gsettings=[
-                        (
-                            self.username,
-                            "org.gnome.shell",
-                            "favorite-apps",
-                            "['firefox.desktop', 'google-chrome.desktop', 'xairedit.desktop', 'keepass.desktop', 'spotify-launcher.desktop', 'org.gnome.Evolution.desktop', 'kitty.desktop', 'discord.desktop']"
-                        )
-                    ]
+                    # gsettings=[
+                    #     (
+                    #         self.username,
+                    #         "org.gnome.shell",
+                    #         "favorite-apps",
+                    #         "['firefox.desktop', 'google-chrome.desktop', 'xairedit.desktop', 'keepass.desktop', 'spotify-launcher.desktop', 'org.gnome.Evolution.desktop', 'kitty.desktop', 'discord.desktop']"
+                    #     )
+                    # ]
                 )
             ]
         )

@@ -62,7 +62,13 @@ class Hilfsprogramme(SubModule):
                 (
                     "kitty.desktop",
                     0,
-                    1150
+                    1150,
+                    True
+                ),
+                (
+                    "hilfsprogramme",
+                    0,
+                    115
                 ),
             ],
             folder_links=[

@@ -27,6 +27,7 @@ class HostBase(decman.Module):
 
         # Desktop-Verknüpfungen
         self.desktop_links = []
+        self.folder_links = []
 
         # Konfigurationen
         angewendete_konfigurationen = []
@@ -37,11 +38,12 @@ class HostBase(decman.Module):
         config_dirs = []
 
         for module in submodules:
-            sub_native, sub_foreign, sub_flatpak, sub_desktop_links, sub_configurations = module.collect_packages()
+            sub_native, sub_foreign, sub_flatpak, sub_desktop_links, sub_folder_links, sub_configurations = module.collect_packages()
             native.extend(sub_native)
             foreign.extend(sub_foreign)
             flatpak.extend(sub_flatpak)
             self.desktop_links.extend(sub_desktop_links)
+            self.folder_links.extend(sub_folder_links)
             modulkonfigurationen.extend(sub_configurations)
 
         # Direkt übergebene Konfigurationen
@@ -116,6 +118,7 @@ class HostBase(decman.Module):
         self.commands = commands
 
         # Konfiguration der Desktop-Verknüpfungen
+        self._generate_folder_links()
         self._generate_desktop_links()
 
         decman.execution_order = [
@@ -211,4 +214,77 @@ class HostBase(decman.Module):
             self.commands.append(print_cmd)
         else:
             print_cmd = "echo -e '\\n========================================\\n[Decman] Es wurden keine konfigurierten Desktopverknüpfungen gefunden.\\n========================================\\n'"
+            self.commands.append(print_cmd)
+
+    def _generate_folder_links (self):
+        if self.folder_links:
+            merged_folders = {}
+
+            for folder_id, folder_name, apps in self.folder_links:
+                if folder_id not in merged_folders:
+                    merged_folders[folder_id] = {
+                        'name': folder_name,
+                        'apps': {}
+                    }
+
+                # Apps zum Ordner hinzufügen (bei Duplikaten die höhere Priorität behalten)
+                for app_id, app_prio in apps:
+                    current_prio = merged_folders[folder_id]['apps'].get(app_id, -1)
+                    if app_prio > current_prio:
+                        merged_folders[folder_id]['apps'][app_id] = app_prio
+
+            # Alte Ordner-Konfiguration aufräumen
+            clean_folders_cmd = (
+                f"sudo -u {self.username} "
+                f"DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u {self.username})/bus "
+                f"dconf reset -f /org/gnome/desktop/app-folders/folders/"
+            )
+            self.commands.append(clean_folders_cmd)
+
+            # Neue Konfiguration einpflegen
+            registered_folder_ids = []
+            folder_summary_lines = []
+
+            for folder_id, data in merged_folders.items():
+                registered_folder_ids.append(f"'{folder_id}'")
+
+                # Apps innerhalb des Ordners nach ihrer Priorität sortieren (höchste zuerst)
+                sorted_apps = sorted(data['apps'].items(), key=lambda x: x[1], reverse=True)
+                app_ids_formatted = [f"'{app_id}'" for app_id, _ in sorted_apps]
+                apps_array_str = f"[{', '.join(app_ids_formatted)}]"
+
+                # Schema-Pfad für den spezifischen Ordner
+                folder_schema_path = f"org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/{folder_id}/"
+
+                # GSettings für den Ordner setzen
+                self.gsettings.append((self.username, folder_schema_path, "name", f"'{data['name']}'"))
+                self.gsettings.append((self.username, folder_schema_path, "apps", apps_array_str))
+                self.gsettings.append((self.username, folder_schema_path, "categories", "[]"))
+                self.gsettings.append((self.username, folder_schema_path, "excluded-apps", "[]"))
+
+                # Zeile für die spätere Konsolenausgabe formatieren
+                anzahl_apps_im_ordner = len(data['apps'])
+                folder_summary_lines.append(f" - {data['name']} ({folder_id}): {anzahl_apps_im_ordner} Verknüpfung(en)")
+
+            # Alle registrierten Ordner in GNOME aktivieren
+            if registered_folder_ids:
+                folder_children_str = f"[{', '.join(registered_folder_ids)}]"
+                self.gsettings.append((
+                    self.username,
+                    "org.gnome.desktop.app-folders",
+                    "folder-children",
+                    folder_children_str
+                ))
+
+                # Ausgabe des Ergebnisses
+                formatted_folders = "\\n".join(folder_summary_lines)
+                print_cmd = (
+                    f"echo -e '\\n========================================\\n"
+                    f"[Decman] {len(merged_folders)} App-Ordner konfiguriert:\\n"
+                    f"{formatted_folders}\\n"
+                    f"========================================\\n'"
+                )
+                self.commands.append(print_cmd)
+        else:
+            print_cmd = "echo -e '\\n========================================\\n[Decman] Es wurden keine konfigurierten Desktop-Ordner gefunden.\\n========================================\\n'"
             self.commands.append(print_cmd)

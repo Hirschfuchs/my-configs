@@ -9,6 +9,7 @@ class SubModule(decman.Module):
             aur_packages=None,
             flatpak_packages=None,
             desktop_links=None,
+            folder_links=None,
             submodules=None,
             configurations=None,
     ):
@@ -18,6 +19,7 @@ class SubModule(decman.Module):
         self.aur_packages = aur_packages or []
         self.flatpak_packages = flatpak_packages or []
         self.desktop_links = desktop_links or []
+        self.folder_links = folder_links or []
         self.submodules = submodules or []
         self.configurations = configurations or []
 
@@ -29,14 +31,16 @@ class SubModule(decman.Module):
         foreign = list(self.aur_packages)
         flatpak = list(self.flatpak_packages)
         desktop_links = list(self.desktop_links)
+        folder_links = list(self.folder_links)
         configurations = list(self.configurations)
 
         for module in self.submodules:
-            sub_native, sub_foreign, sub_flatpak, sub_desktop_links, sub_configurations = module.collect_packages()
+            sub_native, sub_foreign, sub_flatpak, sub_desktop_links, sub_folder_links, sub_configurations = module.collect_packages()
             native.extend(sub_native)
             foreign.extend(sub_foreign)
             flatpak.extend(sub_flatpak)
             desktop_links.extend(sub_desktop_links)
+            folder_links.extend(sub_folder_links)
             configurations.extend(sub_configurations)
 
-        return native, foreign, flatpak, desktop_links, configurations
+        return native, foreign, flatpak, desktop_links, folder_links, configurations

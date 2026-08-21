@@ -8,5 +8,17 @@ class Individualisierung(SubModule):
             aur_packages=[
                 # Anpassung für Grub-Bootmenü
                 "grub-customizer",
+            ],
+            folder_links=[
+                (
+                    "hilfsprogramme",
+                    "Hilfsprogramme",
+                    [
+                        (
+                            "grub-customizer.desktop",
+                            3
+                        ),
+                    ]
+                ),
             ]
         )

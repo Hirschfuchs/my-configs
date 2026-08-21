@@ -52,5 +52,41 @@ class Hilfsprogramme(SubModule):
                 # GUI für Git (ersetzt gitg)
                 # Fehlende PGP-Signaturen bei Installation der Abgängigkeit garden-tools
                 "com.github.git_cola.git-cola"
-            ]
+            ],
+            desktop_links=[
+                (
+                    "dev.zed.Zed.desktop",
+                    0,
+                    1160
+                ),
+                (
+                    "kitty.desktop",
+                    0,
+                    1150
+                ),
+            ],
+            folder_links=[
+                (
+                    "hilfsprogramme",
+                    "Hilfsprogramme",
+                    [
+                        (
+                            "vlc.desktop",
+                            12
+                        ),
+                        (
+                            "com.github.git_cola.git-cola.desktop",
+                            10
+                        ),
+                        (
+                            "org.kde.kdiff3.desktop",
+                            8
+                        ),
+                        (
+                            "vim.desktop",
+                            6
+                        ),
+                    ]
+                ),
+            ],
         )

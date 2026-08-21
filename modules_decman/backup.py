@@ -10,5 +10,12 @@ class Backup(SubModule):
                 "borg",
                 # Frontend für Borg Backup
                 "vorta",
+            ],
+            desktop_links=[
+                (
+                    "com.borgbase.Vorta.desktop",
+                    1,
+                    111
+                )
             ]
         )

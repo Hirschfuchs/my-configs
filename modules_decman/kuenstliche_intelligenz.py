@@ -8,5 +8,12 @@ class KuenstlicheIntelligenz(SubModule):
             aur_packages=[
                 # Runtime für lokale Ausführung von KIs
                 "lmstudio-bin",
-            ]
+            ],
+            desktop_links=[
+                (
+                    "lmstudio.desktop",
+                    0,
+                    765
+                ),
+            ],
         )

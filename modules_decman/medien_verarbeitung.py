@@ -12,5 +12,17 @@ class MedienVerarbeitung(SubModule):
                 "yt-dlp",
                 # Bild-zu-PDF-Konvertierer
                 "img2pdf",
-            ]
+            ],
+            folder_links=[
+                (
+                    "hilfsprogramme",
+                    "Hilfsprogramme",
+                    [
+                        (
+                            "fr.handbrake.ghb.desktop",
+                            9
+                        ),
+                    ]
+                ),
+            ],
         )

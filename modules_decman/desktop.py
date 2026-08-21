@@ -79,6 +79,18 @@ class Desktop(SubModule):
                 LeisteConfig(username),
                 KeyboardConfig(username),
                 MultitaskingConfig(username)
+            ],
+            desktop_links=[
+                (
+                    "org.gnome.Nautilus.desktop",
+                    0,
+                    1200,
+                ),
+                (
+                    "org.gnome.Evolution.desktop",
+                    0,
+                    1100,
+                ),
             ]
         )
 

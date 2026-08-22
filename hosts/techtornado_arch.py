@@ -1,7 +1,5 @@
-from modules_decman.configurations.base import SystemConfiguration
 from modules_decman.kuenstliche_intelligenz import KuenstlicheIntelligenz
 from .base import HostBase
-from modules_decman.a11y import A11y
 from modules_decman.bildbearbeitung import Bildbearbeitung
 from modules_decman.arch_basis.firmware_treiber.cpu_intel import CpuIntel
 from modules_decman.arch_basis.firmware_treiber.gpu_nvidia import GpuNvidia
@@ -57,17 +55,4 @@ class TechtornadoArch(HostBase):
                 Fun(),
                 Legacy(),
             ],
-            subkonfigurationen=[
-                SystemConfiguration(
-                    name="Techtornado Favoriten-Programme",
-                    # gsettings=[
-                    #     (
-                    #         self.username,
-                    #         "org.gnome.shell",
-                    #         "favorite-apps",
-                    #         "['firefox.desktop', 'google-chrome.desktop', 'xairedit.desktop', 'keepass.desktop', 'spotify-launcher.desktop', 'org.gnome.Evolution.desktop', 'kitty.desktop', 'discord.desktop']"
-                    #     )
-                    # ]
-                )
-            ]
         )

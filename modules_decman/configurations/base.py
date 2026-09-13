@@ -10,6 +10,7 @@ class SystemConfiguration(decman.Module):
             systemd_units=None,
             commands=None,
             gsettings=None,
+            config_json_values=None,
             config_files=None,
             config_dirs=None,
             subconfigs=None,
@@ -20,6 +21,7 @@ class SystemConfiguration(decman.Module):
         self.systemd_units = systemd_units or []
         self.commands = commands or []
         self.gsettings = gsettings or []
+        self.config_json_values = config_json_values or []
         self.config_files = config_files or []
         self.config_dirs = config_dirs or []
         self.subconfigs = subconfigs or []
@@ -32,16 +34,18 @@ class SystemConfiguration(decman.Module):
         systemd_units = list(self.systemd_units)
         commands = list(self.commands)
         gsettings = list(self.gsettings)
+        config_json_values = list(self.config_json_values)
         config_files = list(self.config_files)
         config_dirs = list(self.config_dirs)
 
         for konfiguration in self.subconfigs:
-            sub_config_namen, sub_systemd_units, sub_commands, sub_gsettings, sub_config_files, sub_config_dirs = konfiguration.collect_configs()
+            sub_config_namen, sub_systemd_units, sub_commands, sub_gsettings, sub_config_json_values, sub_config_files, sub_config_dirs = konfiguration.collect_configs()
             config_namen.extend(sub_config_namen)
             systemd_units.extend(sub_systemd_units)
             commands.extend(sub_commands)
             gsettings.extend(sub_gsettings)
+            config_json_values.extend(sub_config_json_values)
             config_files.extend(sub_config_files)
             config_dirs.extend(sub_config_dirs)
 
-        return config_namen, systemd_units, commands, gsettings, config_files, config_dirs
+        return config_namen, systemd_units, commands, gsettings, config_json_values, config_files, config_dirs

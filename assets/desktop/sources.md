@@ -1,6 +1,6 @@
 Image Sources:
 
-| Bild                  | Thema        | Quelle                             | Link                                                                   |
-|-----------------------|--------------|------------------------------------|------------------------------------------------------------------------|
-| background-bright.jpg | Alster Tag   | Image by Niklas from Pixabay       | https://pixabay.com/photos/bridge-river-nature-autumn-season-6850009/  |
-| background-dark.jpg   | Alster Nacht | Image by Martin Klass from Pixabay | https://pixabay.com/photos/hamburg-alster-heaven-water-sunset-5286863/ |
+| Bild                  | Thema                     | Quelle                                | Link                                                            |
+|-----------------------|---------------------------|---------------------------------------|-----------------------------------------------------------------|
+| background-bright.jpg | Hamburger Hafen am Tag    | Image by Wolfgang Weiser from Pixabay | https://pixabay.com/photos/container-ships-port-ships-8558472/  |
+| background-dark.jpg   | Hamburger Hafen bei Nacht | Image by Niklas from Pixabay          | https://pixabay.com/photos/hamburg-port-ship-container-6849995/ |

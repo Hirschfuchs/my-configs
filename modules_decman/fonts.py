@@ -8,6 +8,8 @@ class Fonts(SubModule):
             native_packages=[
                 # Ubuntu Font Family
                 "ttf-ubuntu-font-family",
+                # Jetbrains Mono-Font
+                "ttf-jetbrains-mono",
                 # Noto Emoji
                 "noto-fonts-emoji",
             ],

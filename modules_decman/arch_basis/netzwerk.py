@@ -1,5 +1,6 @@
+import decman
 from ..base import SubModule
-
+from ..configurations.base import SystemConfiguration
 
 class Netzwerk(SubModule):
     def __init__(self):
@@ -12,5 +13,11 @@ class Netzwerk(SubModule):
                 "iwd",
                 # Paketverfolgung
                 "traceroute",
-            ]
+            ],
+            configurations = [
+                SystemConfiguration(
+                    name="Erweiterte Netzwerkkonfiguration",
+                    systemd_units=["iwd.service"],
+                )
+            ],
         )

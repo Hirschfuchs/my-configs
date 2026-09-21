@@ -20,7 +20,7 @@ class ArchMinimum(SubModule):
             ],
             configurations=[
                 SystemConfiguration(
-                    name="Netzwerkkonfiguration",
+                    name="Standard-Netzwerkkonfiguration",
                     systemd_units=["NetworkManager.service"]
                 )
             ]

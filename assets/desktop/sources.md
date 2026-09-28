@@ -1,6 +1,6 @@
 Image Sources:
 
-| Bild                  | Thema                     | Quelle                                | Link                                                            |
-|-----------------------|---------------------------|---------------------------------------|-----------------------------------------------------------------|
-| background-bright.jpg | Hamburger Hafen am Tag    | Image by Wolfgang Weiser from Pixabay | https://pixabay.com/photos/container-ships-port-ships-8558472/  |
-| background-dark.jpg   | Hamburger Hafen bei Nacht | Image by Niklas from Pixabay          | https://pixabay.com/photos/hamburg-port-ship-container-6849995/ |
+| Bild                  | Thema                   | Quelle                               | Link                                                                 |
+|-----------------------|-------------------------|--------------------------------------|----------------------------------------------------------------------|
+| background-bright.jpg | Speicherstadt am Tag    | Image from Pixabay                   | https://pixabay.com/photos/hamburg-speicherstadt-channel-4570577/    |
+| background-dark.jpg   | Speicherstadt bei Nacht | Image by Michael Krämer from Pixabay | https://pixabay.com/photos/hamburg-speicherstadt-kontorhaus-1340004/ |

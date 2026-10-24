@@ -12,6 +12,8 @@ class MedienVerarbeitung(SubModule):
                 "libdvdcss",
                 # Video-Transcoder
                 "handbrake",
+                # Muxer
+                "mkvtoolnix-gui",
                 # YouTube Downloader
                 "yt-dlp",
                 # Bild-zu-PDF-Konvertierer

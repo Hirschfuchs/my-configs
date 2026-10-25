@@ -13,6 +13,13 @@ class Audio(SubModule):
                 # Steuerung für ALSA
                 "alsa-utils",
 
+                # ALSA Libraries
+                "alsa-lib",
+                "lib32-alsa-lib",
+
+                # ASLA-Pipewire-Brücke
+                "pipewire-alsa",
+
                 # ALSA-OSS-Brücke
                 "alsa-oss",
             ],

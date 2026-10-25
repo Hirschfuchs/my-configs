@@ -6,12 +6,23 @@ class MedienVerarbeitung(SubModule):
         super().__init__(
             "medien-verarbeitung",
             native_packages=[
+                # DVD-Tools
+                "libdvdread",
+                "libdvdnav",
+                "libdvdcss",
                 # Video-Transcoder
                 "handbrake",
+                # Muxer
+                "mkvtoolnix-gui",
                 # YouTube Downloader
                 "yt-dlp",
                 # Bild-zu-PDF-Konvertierer
                 "img2pdf",
+            ],
+            aur_packages=[
+                # BluRay Wiedergabe
+                "makemkv",
+                "makemkv-libaacs",
             ],
             folder_links=[
                 (

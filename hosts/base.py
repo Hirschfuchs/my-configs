@@ -4,8 +4,41 @@ import decman
 import os
 import decman.config
 from decman.extras.users import User, UserManager
+import json
+from pathlib import Path
 
 from modules_decman.configurations.aur_fix import AurFix
+
+def update_json_file(file_path: str, new_data: dict):
+    path = Path(file_path)
+
+    # Zielverzeichnis erstellen, falls nicht vorhanden
+    path.parent.mkdir(parents=True, exist_ok=True)
+
+    existing_data = {}
+    if path.exists():
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                existing_data = json.load(f)
+        except json.JSONDecodeError:
+            # Datei existiert, ist aber leer oder ungültig
+            existing_data = {}
+
+    def deep_merge(target, source):
+        for key, value in source.items():
+            if (
+                isinstance(value, dict)
+                and key in target
+                and isinstance(target[key], dict)
+            ):
+                deep_merge(target[key], value)
+            else:
+                target[key] = value
+
+    deep_merge(existing_data, new_data)
+
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(existing_data, f, indent=4, ensure_ascii=False)
 
 
 class HostBase(decman.Module):
@@ -34,6 +67,7 @@ class HostBase(decman.Module):
         systemd_units = []
         commands = []
         gsettings = []
+        config_json_values = []
         config_files = []
         config_dirs = []
 
@@ -48,21 +82,23 @@ class HostBase(decman.Module):
 
         # Direkt übergebene Konfigurationen
         for konfiguration in subkonfigurationen:
-            config_namen, sub_systemd_units, sub_commands, sub_gsettings, sub_config_files, sub_config_dirs = konfiguration.collect_configs()
+            config_namen, sub_systemd_units, sub_commands, sub_gsettings, sub_config_json_values, sub_config_files, sub_config_dirs = konfiguration.collect_configs()
             angewendete_konfigurationen.extend(config_namen)
             systemd_units.extend(sub_systemd_units)
             commands.extend(sub_commands)
             gsettings.extend(sub_gsettings)
+            config_json_values.extend(sub_config_json_values)
             config_files.extend(sub_config_files)
             config_dirs.extend(sub_config_dirs)
 
         # Über Module definierte Konfigurationen
         for konfiguration in modulkonfigurationen:
-            config_namen, sub_systemd_units, sub_commands, sub_gsettings, sub_config_files, sub_config_dirs = konfiguration.collect_configs()
+            config_namen, sub_systemd_units, sub_commands, sub_gsettings, sub_config_json_values, sub_config_files, sub_config_dirs = konfiguration.collect_configs()
             angewendete_konfigurationen.extend(config_namen)
             systemd_units.extend(sub_systemd_units)
             commands.extend(sub_commands)
             gsettings.extend(sub_gsettings)
+            config_json_values.extend(sub_config_json_values)
             config_files.extend(sub_config_files)
             config_dirs.extend(sub_config_dirs)
 
@@ -114,6 +150,7 @@ class HostBase(decman.Module):
 
         # Speichern der Kommandos für nach den Installationen
         self.angewendete_konfigurationen = sorted(set(angewendete_konfigurationen))
+        self.config_json_values = config_json_values
         self.gsettings = gsettings
         self.commands = commands
 
@@ -150,6 +187,22 @@ class HostBase(decman.Module):
             print_cmd = f"echo -e '\\n========================================\\n[Decman] Folgende Konfigurationen werden angewendet:\\n - {formatted_names}\\n========================================\\n'"
 
             decman.sh(print_cmd)
+
+        if self.config_json_values:
+            print("[Decman] Wende JSON-Dateikonfigurationen an...")
+            for json_entry in self.config_json_values:
+                # Erwartetes Format: (file_path, { key: value }) oder Tuple (file_path, key, value)
+                if len(json_entry) == 2:
+                    file_path, key_values = json_entry
+                    if isinstance(key_values, dict):
+                        update_json_file(file_path, key_values)
+                    else:
+                        print(
+                            f"[Decman] Fehlerhaftes JSON-Format für {file_path}"
+                        )
+                elif len(json_entry) == 3:
+                    file_path, key, value = json_entry
+                    update_json_file(file_path, {key: value})
 
         commands = self.commands
 

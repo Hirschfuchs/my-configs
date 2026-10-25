@@ -7,8 +7,7 @@ class Hilfsprogramme(SubModule):
             "hilfsprogramme",
             native_packages=[
                 # Video- und Medienplayer (Open Source & sehr flexibel) mit Codecs
-                "vlc",
-                "vlc-plugin-ffmpeg",
+                "mpv",
                 # VIM für Notizen im Terminal
                 "vim",
                 # Bildverarbeitung
